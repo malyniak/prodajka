@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: backend
+
+  r2dbc :
+    url : r2dbc:mysql://localhost:3306/prodajka
+    username : root
+    password : 12345678
+
+  liquibase :
+    url : jdbc:mysql://localhost:3306/prodajka
+    user : root
+    password : 12345678
+    change-log : classpath:/db.changelog/db.changelog-master.yaml
+
+  servlet :
+    multipart :
+      max-file-size : 1MB
+      enabled : true
+      max-request-size : 1MB
+  jackson :
+    serialization :
+      FAIL_ON_EMPTY_BEANS : false
+
+aws :
+  s3 :
+    access-key : AKIA3TD2SGNEKBLGEUHF
+    secret-key : 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
+    region : eu-north-1
+    bucket : prodajka.bucket
+
+logging :
+  level :
+    org.springframework.r2dbc.core : DEBUG

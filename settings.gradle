@@ -1,0 +1,4 @@
+rootProject.name = 'prodajka'
+
+include 'backend'
+include 'frontend'

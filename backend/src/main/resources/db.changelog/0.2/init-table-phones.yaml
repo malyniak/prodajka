@@ -1,0 +1,162 @@
+databaseChangeLog:
+  - logicalFilePath: db/changelog/0.2/init-table-phones.yaml
+  - changeSet :
+      id : init-table-phones
+      author : malyniak
+      changes :
+        - insert :
+            tableName : phones
+            columns :
+              - column:
+                  name: id
+                  value: 20c81ccc-91b7-4256-b9c7-780f29409292
+              - column :
+                  name : display
+                  value : '6.7, Dynamic AMOLED 2X, 2340x1080'
+              - column :
+                  name : frequencies
+                  value : '3.1 gH + 2.9 gH + 2.6 gH + 1.95 gH'
+              - column :
+                  name : camera
+                  value : 'triple main camera: 50 MP + 12 MP + 8 MP, front: 10 MP'
+              - column :
+                  name : version_OS
+                  value : 'Android 14'
+              - column :
+                  name : battery_power
+                  value : '4700 mA*h'
+              - column:
+                  name: other_functions
+                  value: 'RAM 8 ГБ / 256'
+              - column :
+                  name : is3g
+                  value : 1
+              - column :
+                  name : is_LTE
+                  value : 1
+              - column :
+                  name : is5g
+                  value : 1
+              - column :
+                  name : is_nano_sim
+                  value : 1
+              - column :
+                  name : is_2_sim
+                  value : 1
+              - column :
+                  name : product_id
+                  value : 6285c5df-a9f5-4b8b-adcb-42d4d32603d8
+        - insert :
+            tableName : phones
+            columns :
+              - column :
+                  name : id
+                  value : 70171e8a-8615-4a60-95e2-4af572e6891b
+              - column :
+                  name : display
+                  value : 'OLED (Super Retina XDR), 2622x1206)'
+              - column :
+                  name : camera
+                  value : 'основна потрійна камера: 48 Мп + 48 Мп + 12 Мп'
+              - column :
+                  name : version_OS
+                  value : 'iOS 18'
+              - column :
+                  name : other_functions
+                  value : ' 256 ГБ вбудованої памяті'
+              - column :
+                  name : is3g
+                  value : 1
+              - column :
+                  name : is_LTE
+                  value : 1
+              - column :
+                  name : is5g
+                  value : 1
+              - column :
+                  name : is_nano_sim
+                  value : 1
+              - column :
+                  name : is_2_sim
+                  value : 0
+              - column :
+                  name : product_id
+                  value : 683dad74-d736-4e1c-b051-100573f2bd46
+        - insert :
+            tableName : phones
+            columns :
+              - column :
+                  name : id
+                  value : acc37dad-9671-497a-a354-ffe512ebc405
+              - column :
+                  name : display
+                  value : '6.1", OLED (Super Retina XDR), 2532x1170)'
+              - column :
+                  name : camera
+                  value : 'фронтальна камера: 12 Мп'
+              - column :
+                  name : version_OS
+                  value : 'iOS 15'
+              - column :
+                  name : other_functions
+                  value : '128 ГБ вбудованої памяті'
+              - column :
+                  name : is3g
+                  value : 1
+              - column :
+                  name : is_LTE
+                  value : 1
+              - column :
+                  name : is5g
+                  value : 1
+              - column :
+                  name : is_nano_sim
+                  value : 1
+              - column :
+                  name : is_2_sim
+                  value : 0
+              - column :
+                  name : product_id
+                  value : 69b538b2-eac4-4395-927a-030631d533dc
+        - insert :
+            tableName : phones
+            columns :
+              - column :
+                  name : id
+                  value : 8ef49d14-eaad-4987-90e3-3702a219fd5f
+              - column :
+                  name : display
+                  value : '6.67", AMOLED, 2712x1220'
+              - column :
+                  name : frequencies
+                  value : '2.8 ГГц + 2.0 ГГц'
+              - column :
+                  name : camera
+                  value : 'потрійна основна камера: 200 Мп + 8 Мп + 2 Мп, фронтальна 16 Мп'
+              - column :
+                  name : version_OS
+                  value : 'Android 13'
+              - column :
+                  name : battery_power
+                  value : '5000 мА * год'
+              - column :
+                  name : other_functions
+                  value : 'RAM 8 ГБ / 256 ГБ вбудованої памяті'
+              - column :
+                  name : is3g
+                  value : 1
+              - column :
+                  name : is_LTE
+                  value : 1
+              - column :
+                  name : is5g
+                  value : 1
+              - column :
+                  name : is_nano_sim
+                  value : 1
+              - column :
+                  name : is_2_sim
+                  value : 1
+              - column :
+                  name : product_id
+                  value : 4089ba28-6ccc-4dde-8b0c-7520745e3a5b

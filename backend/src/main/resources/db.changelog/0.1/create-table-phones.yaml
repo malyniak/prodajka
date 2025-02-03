@@ -1,0 +1,60 @@
+databaseChangeLog:
+  - logicalFilePath: db/changelog/0.1/create-table-phones.yaml
+  - changeSet:
+      id: create-table-phones
+      author: malyniak
+      changes :
+        - createTable:
+            tableName: phones
+            columns :
+              - column :
+                  name : id
+                  type : CHAR(36)
+                  constraints :
+                    primaryKey : true
+              - column :
+                  name : display
+                  type : VARCHAR(255)
+              - column :
+                  name : frequencies
+                  type : VARCHAR(255)
+              - column :
+                  name : camera
+                  type : VARCHAR(255)
+              - column :
+                  name : version_OS
+                  type : VARCHAR(255)
+              - column :
+                  name : battery_power
+                  type : VARCHAR(255)
+              - column :
+                  name : other_functions
+                  type : VARCHAR(255)
+              - column :
+                  name : is3g
+                  type : TINYINT(1)
+              - column :
+                  name : is_LTE
+                  type : TINYINT(1)
+              - column :
+                  name : is5g
+                  type : TINYINT(1)
+              - column :
+                  name : is_nano_sim
+                  type : TINYINT(1)
+              - column :
+                  name : is_2_sim
+                  type : TINYINT(1)
+              - column:
+                  name: product_id
+                  type: CHAR(36)
+                  constraints:
+                    references : products(id)
+                    foreignKeyName : fk_phones_products
+
+
+
+
+
+
+

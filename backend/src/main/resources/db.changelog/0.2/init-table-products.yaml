@@ -1,0 +1,415 @@
+databaseChangeLog:
+  - logicalFilePath: db/changelog/0.2/init-table-products.yaml
+  - changeSet :
+      id : init-table-products
+      author : malyniak
+      changes :
+        - insert :
+            tableName : products
+            columns :
+              - column:
+                  name: id
+                  value: 6285c5df-a9f5-4b8b-adcb-42d4d32603d8
+              - column :
+                  name : full_name
+                  value : 'Samsung Galaxy S24 FE 8/256GB Mint (SM-S721BLGGEUC)'
+              - column :
+                  name : price
+                  value : 27699
+              - column :
+                  name : brand
+                  value : 'Samsung'
+              - column :
+                  name : model
+                  value : 'Exynos 2400e'
+              - column :
+                  name : product_category
+                  value : 'PHONE'
+              - column:
+                  name: sale_status
+                  value: 'AVAILABLE'
+              - column :
+                  name : is_access
+                  value : 1
+              - column :
+                  name : description
+                  value : 'Зустрічайте Galaxy S24 FE з Galaxy AI, де кожна фотографія розпалює безмежну творчість. Пориньте у світ Galaxy AI та відкрийте безмежні горизонти вашої уяви. Сфотографуйте, обведіть, натисніть – і знайдіть ось так просто.'
+              - column:
+                  name: color
+                  value: 'black'
+        - insert :
+            tableName : products
+            columns :
+              - column :
+                  name : id
+                  value : 683dad74-d736-4e1c-b051-100573f2bd46
+              - column :
+                  name : full_name
+                  value : 'Apple iPhone 16 Pro 128GB Desert Titanium (MYNF3SX/A)'
+              - column :
+                  name : price
+                  value : 57499
+              - column :
+                  name : brand
+                  value : 'Apple'
+              - column :
+                  name : model
+                  value : 'iPhone 16 Pro'
+              - column :
+                  name : product_category
+                  value : 'PHONE'
+              - column :
+                  name : sale_status
+                  value : 'AVAILABLE'
+              - column :
+                  name : is_access
+                  value : 1
+              - column :
+                  name : description
+                  value : 'iPhone 16 Pro доступний у чотирьох приголомшливих кольорах, включаючи новий Desert Titanium.'
+              - column :
+                  name : color
+                  value : 'black'
+        - insert :
+            tableName : products
+            columns :
+              - column :
+                  name : id
+                  value : 4089ba28-6ccc-4dde-8b0c-7520745e3a5b
+              - column :
+                  name : full_name
+                  value : 'Xiaomi Redmi Note 13 Pro 8/256GB Midnight Black (1020564)'
+              - column :
+                  name : price
+                  value : 9999
+              - column :
+                  name : brand
+                  value : 'Xiaomi'
+              - column :
+                  name : model
+                  value : 'Xiaomi Redmi Note 13 Pro'
+              - column :
+                  name : product_category
+                  value : 'PHONE'
+              - column :
+                  name : sale_status
+                  value : 'AVAILABLE'
+              - column :
+                  name : is_access
+                  value : 1
+              - column :
+                  name : description
+                  value : 'Redmi Note 13 Pro. Кожен кадр – культовий.'
+              - column :
+                  name : color
+                  value : 'red'
+        - insert :
+            tableName : products
+            columns :
+              - column :
+                  name : id
+                  value : 69b538b2-eac4-4395-927a-030631d533dc
+              - column :
+                  name : full_name
+                  value : 'Apple iPhone 13 128GB Midnight (MLPF3HU/A)'
+              - column :
+                  name : price
+                  value : 26499
+              - column :
+                  name : brand
+                  value : 'Apple'
+              - column :
+                  name : model
+                  value : 'iPhone 13 Pro'
+              - column :
+                  name : product_category
+                  value : 'PHONE'
+              - column :
+                  name : sale_status
+                  value : 'AVAILABLE'
+              - column :
+                  name : is_access
+                  value : 1
+              - column :
+                  name : description
+                  value : 'Сильно вирізняється.'
+              - column :
+                  name : color
+                  value : 'purple'
+        - insert :
+            tableName : products
+            columns :
+              - column :
+                  name : id
+                  value : ec21007c-90ad-4893-8b84-7b03c1913b3b
+              - column :
+                  name : full_name
+                  value : 'Телевізор LG 55UR78006LK'
+              - column :
+                  name : price
+                  value : 21999
+              - column :
+                  name : brand
+                  value : 'LG'
+              - column :
+                  name : model
+                  value : 'LG 55UR78006LK'
+              - column :
+                  name : product_category
+                  value : 'TV'
+              - column :
+                  name : sale_status
+                  value : 'AVAILABLE'
+              - column :
+                  name : is_access
+                  value : 1
+              - column :
+                  name : description
+                  value : 'Телевізори LG UHD з підтримкою HDR10 Pro забезпечують оптимізовані рівні яскравості для яскравих кольорів і бездоганного деталізування'
+              - column :
+                  name : color
+                  value : 'black'
+              - column :
+                  name : image_url
+                  value : 'aef-4be0-98d3-0d028fe251b0 LG_55UR78006LK.jpg'
+        - insert :
+            tableName : products
+            columns :
+              - column :
+                  name : id
+                  value : 85dd557b-c62a-4cce-8019-6c3a36439f5a
+              - column :
+                  name : full_name
+                  value : 'Телевізор Ergo 43GUS8500'
+              - column :
+                  name : price
+                  value : 10999
+              - column :
+                  name : brand
+                  value : 'Ergo'
+              - column :
+                  name : model
+                  value : '43GUS8500'
+              - column :
+                  name : product_category
+                  value : 'TV'
+              - column :
+                  name : sale_status
+                  value : 'AVAILABLE'
+              - column :
+                  name : is_access
+                  value : 1
+              - column :
+                  name : description
+                  value : 'РОЗКІШ – це твоє!'
+              - column :
+                  name : color
+                  value : 'black'
+              - column :
+                  name : image_url
+                  value : 'fbd-4652-911d-1c412d477a58 Ergo_43GUS8500.jpg'
+        - insert :
+            tableName : products
+            columns :
+              - column :
+                  name : id
+                  value : 2a36b430-5550-4888-8c28-dfd53c6ff990
+              - column :
+                  name : full_name
+                  value : 'Телевізор Samsung QLED QE55Q60DAUXUA'
+              - column :
+                  name : price
+                  value : 32999
+              - column :
+                  name : brand
+                  value : 'Samsung'
+              - column :
+                  name : model
+                  value : 'QLED QE55Q60DAUXUA'
+              - column :
+                  name : product_category
+                  value : 'TV'
+              - column :
+                  name : sale_status
+                  value : 'AVAILABLE'
+              - column :
+                  name : is_access
+                  value : 0
+              - column :
+                  name : description
+                  value : 'Приголомшливі незмінні кольори завжди завдяки технології Quantum Dot'
+              - column :
+                  name : color
+                  value : 'black'
+              - column:
+                  name: image_url
+                  value: '86d-4ba5-a60c-e9decf07031a samsung_QE55Q60DAUXUA.jpg'
+        - insert :
+            tableName : products
+            columns :
+              - column :
+                  name : id
+                  value : 6420c279-5754-43b4-ae3d-c4a413170364
+              - column :
+                  name : full_name
+                  value : 'Телевізор Samsung QLED QE75Q70DAUXUA'
+              - column :
+                  name : price
+                  value : 74999
+              - column :
+                  name : brand
+                  value : 'Samsung'
+              - column :
+                  name : model
+                  value : 'QLED QE75Q70DAUXUA'
+              - column :
+                  name : product_category
+                  value : 'TV'
+              - column :
+                  name : sale_status
+                  value : 'AVAILABLE'
+              - column :
+                  name : is_access
+                  value : 1
+              - column:
+                  name: description
+                  value : 'Вражаюче реалістичне зображення у 4K'
+              - column :
+                  name : color
+                  value : 'black'
+              - column :
+                  name : image_url
+                  value : '890-44bc-8099-bcc7ae82ac44 Samsung_QE75Q70DAUXUA.jpg'
+
+        - insert :
+            tableName : products
+            columns :
+              - column :
+                  name : id
+                  value : 06671fb0-7af9-4c21-9843-b8145171a528
+              - column :
+                  name : full_name
+                  value : 'Планшет Lenovo Tab M11 8/128GB WiFi + Pen'
+              - column :
+                  name : price
+                  value : 8999
+              - column :
+                  name : brand
+                  value : 'Lenovo'
+              - column :
+                  name : model
+                  value : 'Tab M11'
+              - column :
+                  name : product_category
+                  value : 'LAPTOP'
+              - column :
+                  name : sale_status
+                  value : 'AVAILABLE'
+              - column :
+                  name : is_access
+                  value : 1
+              - column :
+                  name : description
+                  value : 'Яскраве зображення та звучання чотирьох динаміків, що підтримують технологію Dolby Atmos, переносять тебе у світ розваг кінематографічної якості.   '
+              - column :
+                  name : color
+                  value : 'grey'
+        - insert:
+            tableName: products
+            columns:
+              - column:
+                  name: id
+                  value: 41242004-4522-40cb-9838-f2106e8ec840
+              - column:
+                  name: full_name
+                  value: 'Планшет Apple iPad 10.9" 2024 Wi-Fi 64GB'
+              - column:
+                  name: price
+                  value: 18499
+              - column:
+                  name: brand
+                  value: 'Apple'
+              - column:
+                  name: model
+                  value: 'iPad 10.9" 2024'
+              - column:
+                  name: product_category
+                  value: 'LAPTOP'
+              - column:
+                  name: sale_status
+                  value: 'AVAILABLE'
+              - column:
+                  name: is_access
+                  value: 1
+              - column:
+                  name: description
+                  value: 'Мегаздатний. Так, це iPad.'
+              - column:
+                  name: color
+                  value: 'silver'
+        - insert:
+            tableName: products
+            columns:
+              - column:
+                  name: id
+                  value: 6a3a2831-5ce6-42b8-a263-6a23daa8b505
+              - column:
+                  name: full_name
+                  value: 'Планшет Samsung Galaxy Tab A9 Plus 5G 8/128GB Graphite (SM-X216BZAESEK)'
+              - column:
+                  name: price
+                  value: 11999
+              - column:
+                  name: brand
+                  value: 'Samsung'
+              - column:
+                  name: model
+                  value: 'Galaxy Tab A9 Plus'
+              - column:
+                  name: product_category
+                  value: 'LAPTOP'
+              - column:
+                  name: sale_status
+                  value: 'AVAILABLE'
+              - column:
+                  name: is_access
+                  value: 1
+              - column:
+                  name: description
+                  value: 'Galaxy Tab A9 | Tab A9+'
+              - column:
+                  name: color
+                  value: 'grey'
+        - insert:
+            tableName: products
+            columns:
+              - column:
+                  name: id
+                  value: 9ccd6041-41c4-4b22-aebe-ba5007468f58
+              - column:
+                  name: full_name
+                  value: 'Планшет Samsung Galaxy S9 FE+ Wi-Fi 8/128GB (SM-X610N ASEK)'
+              - column:
+                  name: price
+                  value: 23399
+              - column:
+                  name: brand
+                  value: 'Samsung'
+              - column:
+                  name: model
+                  value: 'Galaxy S9 FE+'
+              - column:
+                  name: product_category
+                  value: 'LAPTOP'
+              - column:
+                  name: sale_status
+                  value: 'AVAILABLE'
+              - column:
+                  name: is_access
+                  value: 0
+              - column:
+                  name: description
+                  value: 'Використовуйте S Pen, щоб ефективніше працювати з нотатками'
+              - column:
+                  name: color
+                  value: 'green'

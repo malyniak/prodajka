@@ -1,0 +1,81 @@
+databaseChangeLog :
+  - logicalFilePath : db/changelog/0.1/create-table-products.yaml
+  - changeSet :
+      id : create-table-products
+      author : malyniak
+      changes :
+        - createTable :
+            tableName : products
+            columns :
+              - column :
+                  name : id
+                  type : CHAR(36)
+                  constraints :
+                    primaryKey : true
+              - column :
+                  name : full_name
+                  type : VARCHAR(255)
+                  constraints :
+                    nullable : false
+              - column :
+                  name : price
+                  type : INT
+              - column :
+                  name : brand
+                  type : VARCHAR(255)
+                  constraints :
+                    nullable : false
+              - column :
+                  name : model
+                  type : VARCHAR(255)
+                  constraints :
+                    nullable : false
+              - column :
+                  name : avg_grade
+                  type : DOUBLE(3, 2)
+              - column :
+                  name : product_category
+                  type : VARCHAR(255)
+                  constraints :
+                    nullable : false
+
+              - column :
+                  name : sale_status
+                  type : VARCHAR(255)
+                  constraints :
+                    nullable : false
+              - column :
+                  name : is_access
+                  type : TINYINT(1)
+                  constraints :
+                    nullable : false
+              - column :
+                  name : description
+                  type : VARCHAR(512)
+                  constraints :
+                    nullable : false
+              - column :
+                  name : image_url
+                  type : VARCHAR(255)
+              - column :
+                  name : video_url
+                  type : VARCHAR(255)
+              - column :
+                  name : color
+                  type : VARCHAR(64)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

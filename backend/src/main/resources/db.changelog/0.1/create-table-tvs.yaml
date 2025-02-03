@@ -1,0 +1,32 @@
+databaseChangeLog:
+  - logicalFilePath: db/changelog/0.1/create-table-tvs.yaml
+  - changeSet:
+      id: create-table-tvs
+      author: malyniak
+      changes :
+        - createTable:
+            tableName: tvs
+            columns :
+              - column :
+                  name : id
+                  type : CHAR(36)
+                  constraints :
+                    primaryKey : true
+              - column :
+                  name : diagonal
+                  type : Double(3, 1)
+              - column :
+                  name : resolving_power
+                  type : VARCHAR(128)
+              - column :
+                  name : platform
+                  type : VARCHAR(128)
+              - column :
+                  name : frequency
+                  type : VARCHAR(128)
+              - column:
+                  name: product_id
+                  type: CHAR(36)
+                  constraints:
+                    references : products(id)
+                    foreignKeyName : fk_tvs_products

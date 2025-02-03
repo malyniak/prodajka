@@ -1,0 +1,94 @@
+databaseChangeLog:
+  - logicalFilePath: db/changelog/0.2/init-table-tvs.yaml
+  - changeSet :
+      id : init-table-tvs
+      author : malyniak
+      changes :
+        - insert :
+            tableName : tvs
+            columns :
+              - column:
+                  name: id
+                  value: fbdf0a7f-eaa9-45fa-974e-778fea1248e1
+              - column :
+                  name : diagonal
+                  value : 55
+              - column :
+                  name : resolving_power
+                  value : '3840x2160'
+              - column :
+                  name : platform
+                  value : 'WEBOS'
+
+              - column :
+                  name : frequency
+                  value : '60 Гц'
+              - column :
+                  name : product_id
+                  value : ec21007c-90ad-4893-8b84-7b03c1913b3b
+        - insert :
+            tableName : tvs
+            columns :
+              - column :
+                  name : id
+                  value : 5cf9032f-a6ef-4456-8abf-b6ed1feb0356
+              - column :
+                  name : diagonal
+                  value : 43
+              - column :
+                  name : resolving_power
+                  value : '3840x2160'
+              - column :
+                  name : platform
+                  value : 'Android 11.0'
+
+              - column :
+                  name : frequency
+                  value : '60 Гц (MEMC)'
+              - column :
+                  name : product_id
+                  value : 85dd557b-c62a-4cce-8019-6c3a36439f5a
+        - insert :
+            tableName : tvs
+            columns :
+              - column :
+                  name : id
+                  value : 7b20cdf1-8f00-4f11-a256-8a3f77c711fc
+              - column :
+                  name : diagonal
+                  value : 55
+              - column :
+                  name : resolving_power
+                  value : '3840x2160'
+              - column :
+                  name : platform
+                  value : 'Tizen'
+
+              - column :
+                  name : frequency
+                  value : '50 Гц'
+              - column :
+                  name : product_id
+                  value : 2a36b430-5550-4888-8c28-dfd53c6ff990
+        - insert :
+            tableName : tvs
+            columns :
+              - column :
+                  name : id
+                  value : 75fdc090-aaeb-4e23-b045-c6227569ede5
+              - column :
+                  name : diagonal
+                  value : 75
+              - column :
+                  name : resolving_power
+                  value : '3840x2160'
+              - column :
+                  name : platform
+                  value : 'Tizen'
+
+              - column :
+                  name : frequency
+                  value : '100 Гц'
+              - column :
+                  name : product_id
+                  value : 6420c279-5754-43b4-ae3d-c4a413170364

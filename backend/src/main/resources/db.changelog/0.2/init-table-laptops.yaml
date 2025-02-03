@@ -1,0 +1,102 @@
+databaseChangeLog:
+  - logicalFilePath: db/changelog/0.2/init-table-laptops.yaml
+  - changeSet :
+      id : init-table-laptops
+      author : malyniak
+      changes :
+        - insert :
+            tableName : laptops
+            columns :
+              - column:
+                  name: id
+                  value: c7f2e259-ec92-4bce-b2bc-30700cfe105e
+              - column :
+                  name : display
+                  value : 'Екран 11" IPS (1920x1200)'
+              - column :
+                  name : frequencies
+                  value : 'MediaTek Helio G88 (2.0 ГГц + 1.8 ГГц)'
+              - column :
+                  name : camera
+                  value : 'основна камера 8 Мп + фронтальна - 8 Мп'
+              - column :
+                  name : version_OS
+                  value : 'Android 13'
+              - column :
+                  name : memory
+                  value : 'RAM 8 ГБ / 128 ГБ вбудованої памяті + microSD'
+              - column :
+                  name : product_id
+                  value : 06671fb0-7af9-4c21-9843-b8145171a528
+        - insert :
+            tableName : laptops
+            columns :
+              - column :
+                  name : id
+                  value : e85eff15-ff3a-4bfb-8593-61dc395cb537
+              - column :
+                  name : display
+                  value : 'Екран 10.9" (2360x1640) MultiTouch'
+              - column :
+                  name : frequencies
+                  value : 'понад 1.2 ГГц'
+              - column :
+                  name : camera
+                  value : 'основна камера 12 Мп, фронтальна 12 Мп'
+              - column :
+                  name : version_OS
+                  value : 'iPadOS 16'
+              - column :
+                  name : memory
+                  value : '64 ГБ вбудованої памʼяті'
+              - column :
+                  name : product_id
+                  value : 41242004-4522-40cb-9838-f2106e8ec840
+        - insert :
+            tableName : laptops
+            columns :
+              - column :
+                  name : id
+                  value : cf7b3107-a9b8-4165-b359-db98e6628b80
+              - column :
+                  name : display
+                  value : 'Екран 11" TFT (1920x1200) MultiTouch'
+              - column :
+                  name : frequencies
+                  value : 'Qualcomm Snapdragon 695 (2.2 ГГц + 1.7 ГГц)'
+              - column :
+                  name : camera
+                  value : 'основна камера 8 Мп, фронтальна - 5 Мп'
+              - column :
+                  name : version_OS
+                  value : 'Android 13'
+              - column :
+                  name : memory
+                  value : 'RAM 8 ГБ / 128 ГБ вбудованої памяті + microSD'
+              - column :
+                  name : product_id
+                  value : 6a3a2831-5ce6-42b8-a263-6a23daa8b505
+        - insert :
+            tableName : laptops
+            columns :
+              - column :
+                  name : id
+                  value : ff37cd39-5b70-4263-9a10-0b3539b7534d
+              - column :
+                  name : display
+                  value : 'Екран 12.4" (2560 x 1600) MultiTouch'
+              - column :
+                  name : frequencies
+                  value : 'Samsung Exynos 1380 (2.4 ГГц)'
+              - column :
+                  name : camera
+                  value : 'подвійна основна камера: 8 Мп + 8 Мп, фронтальна - 12 Мп'
+              - column :
+                  name : version_OS
+                  value : 'Android 13'
+              - column :
+                  name : memory
+                  value : 'RAM 8 ГБ / 128 ГБ вбудованої памяті + microSD'
+              - column :
+                  name : product_id
+                  value : 9ccd6041-41c4-4b22-aebe-ba5007468f58

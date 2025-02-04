@@ -19,27 +19,34 @@ public class PhoneService {
     private final PhoneRepository phoneRepository;
     private final ProductService productService;
     public Flux<PhoneDto> getAll() {
-        var all = phoneRepository.findAll()
-                .doOnNext(phoneEntity -> System.out.println("Phone " + phoneEntity))
-                .doOnError(System.out::println);
-        return all.map(this::toPhone);
-    }
-
-    public Flux<ProductDetailsDto<PhoneDto>> getSortPhonesByPriceAsc() {
-       return phoneRepository.sortByPriceAsc()
-                        .flatMap(phoneEntity -> {
-                          return productService.getById(phoneEntity.getProductId())
-                                  .defaultIfEmpty(new ProductDto())
-                                   .map(product -> {
-                                       return new ProductDetailsDto<PhoneDto>(product, toPhone(phoneEntity));
-                                   });
+       return phoneRepository.findAll()
+                .flatMap(phoneEntity -> {
+                   return productService.getById(phoneEntity.getProductId())
+                            .map(productDto -> toPhoneDto(phoneEntity, productDto));
                         });
+
+
     }
 
+//    public Flux<ProductDetailsDto<PhoneDto>> getSortPhonesByPriceAsc() {
+//       return phoneRepository.sortByPriceAsc()
+//                        .flatMap(phoneEntity -> {
+//                          return productService.getById(phoneEntity.getProductId())
+//                                  .defaultIfEmpty(new ProductDto())
+//                                   .map(product -> {
+//                                       return new ProductDetailsDto<PhoneDto>(product, toPhone(phoneEntity));
+//                                   });
+//                        });
+//    }
+//
 
 
     public Mono<PhoneDto> getById(String id) {
-        return phoneRepository.findById(id).map(this::toPhone);
+        return phoneRepository.findById(id).
+                flatMap(phoneEntity -> {
+                    return productService.getById(phoneEntity.getProductId())
+                            .map(productDto -> toPhoneDto(phoneEntity, productDto));
+                });
     }
 
     public Mono<PhoneEntity> create(PhoneDto phoneDto) {
@@ -94,7 +101,7 @@ public class PhoneService {
     }
 
 
-    public PhoneDto toPhone (PhoneEntity phoneEntity) {
+    public PhoneDto toPhoneDto (PhoneEntity phoneEntity, ProductDto productDto) {
         var phone = new PhoneDto();
         phone.setId(phoneEntity.getId());
         phone.setProductId(phoneEntity.getProductId());
@@ -109,8 +116,23 @@ public class PhoneService {
         phone.setIsNanoSim(phoneEntity.getIsNanoSim());
         phone.setVersionOS(phoneEntity.getVersionOS());
         phone.setOtherFunctions(phoneEntity.getOtherFunctions());
+        phone.setFullName(productDto.getFullName());
+        phone.setPrice(productDto.getPrice());
+        phone.setModel(productDto.getModel());
+        phone.setBrand(productDto.getBrand());
+        phone.setAvgGrade(productDto.getAvgGrade());
+        phone.setSaleStatus(productDto.getSaleStatus());
+        phone.setProductCategory(productDto.getProductCategory());
+        phone.setIsAccess(productDto.getIsAccess());
+        phone.setDescription(productDto.getDescription());
+        phone.setImageUrl(productDto.getImageUrl());
+        phone.setVideoUrl(productDto.getVideoUrl());
+        phone.setColor(productDto.getColor());
         return phone;
     }
+
+
+
 
     public PhoneEntity toPhoneEntity(PhoneDto phoneDto) {
         var phoneEntity = new PhoneEntity();

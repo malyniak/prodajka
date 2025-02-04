@@ -11,6 +11,7 @@ import reactor.core.publisher.Mono;
 @RestController
 @RequestMapping("/api/laptop")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:4200")
 public class LaptopController {
     private final LaptopService laptopService;
     @GetMapping

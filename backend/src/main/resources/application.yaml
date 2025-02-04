@@ -12,7 +12,6 @@ spring:
     user : root
     password : 12345678
     change-log : classpath:/db.changelog/db.changelog-master.yaml
-
   servlet :
     multipart :
       max-file-size : 1MB
@@ -31,4 +30,4 @@ aws :
 
 logging :
   level :
-    org.springframework.r2dbc.core : DEBUG
+    org.springframework.r2dbc.core : INFO

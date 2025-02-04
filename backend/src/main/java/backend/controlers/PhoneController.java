@@ -11,6 +11,7 @@ import reactor.core.publisher.Mono;
 @RestController
 @RequestMapping("/api/phone")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:4200")
 public class PhoneController {
     private final PhoneService phoneService;
 

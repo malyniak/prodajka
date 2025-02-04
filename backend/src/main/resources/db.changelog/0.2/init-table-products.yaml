@@ -289,19 +289,19 @@ databaseChangeLog:
                   value : 06671fb0-7af9-4c21-9843-b8145171a528
               - column :
                   name : full_name
-                  value : 'Планшет Lenovo Tab M11 8/128GB WiFi + Pen'
+                  value : 'Ноутбук Acer Aspire 5 A515-57-59VX (NX.KN4EU.00C) Steel Gray'
               - column :
                   name : price
-                  value : 8999
+                  value : 22999
               - column :
                   name : brand
-                  value : 'Lenovo'
+                  value : 'Acer'
               - column :
                   name : model
-                  value : 'Tab M11'
+                  value : 'Aspire 5 A515-57-59VX'
               - column :
                   name : product_category
-                  value : 'LAPTOP'
+                  value : 'TABLET'
               - column :
                   name : sale_status
                   value : 'AVAILABLE'
@@ -310,7 +310,7 @@ databaseChangeLog:
                   value : 1
               - column :
                   name : description
-                  value : 'Яскраве зображення та звучання чотирьох динаміків, що підтримують технологію Dolby Atmos, переносять тебе у світ розваг кінематографічної якості.   '
+                  value : 'Новый Aspire 5 - компактный ноутбук в стильном минималистичном корпусе, качественным IPS дисплеем и разнообразным набором интерфейсов. Благодаря новейшим компонентам, ноутбук обеспечивает максимальную эффективность в многозадачном режиме и идеально подходит для любых задач.'
               - column :
                   name : color
                   value : 'grey'
@@ -322,16 +322,16 @@ databaseChangeLog:
                   value: 41242004-4522-40cb-9838-f2106e8ec840
               - column:
                   name: full_name
-                  value: 'Планшет Apple iPad 10.9" 2024 Wi-Fi 64GB'
+                  value: 'Lenovo IdeaPad Gaming 3 15ACH6 (82K20273RA)'
               - column:
                   name: price
-                  value: 18499
+                  value: 30999
               - column:
                   name: brand
-                  value: 'Apple'
+                  value: 'Lenovo'
               - column:
                   name: model
-                  value: 'iPad 10.9" 2024'
+                  value: 'IdeaPad Gaming 3 15ACH6'
               - column:
                   name: product_category
                   value: 'LAPTOP'
@@ -343,10 +343,10 @@ databaseChangeLog:
                   value: 1
               - column:
                   name: description
-                  value: 'Мегаздатний. Так, це iPad.'
+                  value: 'Новий рівень твого геймінгу.'
               - column:
                   name: color
-                  value: 'silver'
+                  value: 'black'
         - insert:
             tableName: products
             columns:
@@ -355,16 +355,16 @@ databaseChangeLog:
                   value: 6a3a2831-5ce6-42b8-a263-6a23daa8b505
               - column:
                   name: full_name
-                  value: 'Планшет Samsung Galaxy Tab A9 Plus 5G 8/128GB Graphite (SM-X216BZAESEK)'
+                  value: 'Ноутбук Apple MacBook Air 13" M1 8/256GB 2020 (MGN63)'
               - column:
                   name: price
-                  value: 11999
+                  value: 36999
               - column:
                   name: brand
-                  value: 'Samsung'
+                  value: 'Apple'
               - column:
                   name: model
-                  value: 'Galaxy Tab A9 Plus'
+                  value: 'MacBook Air 13" M1'
               - column:
                   name: product_category
                   value: 'LAPTOP'
@@ -376,7 +376,7 @@ databaseChangeLog:
                   value: 1
               - column:
                   name: description
-                  value: 'Galaxy Tab A9 | Tab A9+'
+                  value: 'MacBook Air. З новою силою.'
               - column:
                   name: color
                   value: 'grey'
@@ -388,16 +388,16 @@ databaseChangeLog:
                   value: 9ccd6041-41c4-4b22-aebe-ba5007468f58
               - column:
                   name: full_name
-                  value: 'Планшет Samsung Galaxy S9 FE+ Wi-Fi 8/128GB (SM-X610N ASEK)'
+                  value: 'Ноутбук Lenovo IdeaPad Slim 5 16IAH8 (83BG001ARA)'
               - column:
                   name: price
-                  value: 23399
+                  value: 28999
               - column:
                   name: brand
-                  value: 'Samsung'
+                  value: 'Lenovo'
               - column:
                   name: model
-                  value: 'Galaxy S9 FE+'
+                  value: 'IdeaPad Slim 5'
               - column:
                   name: product_category
                   value: 'LAPTOP'
@@ -409,7 +409,7 @@ databaseChangeLog:
                   value: 0
               - column:
                   name: description
-                  value: 'Використовуйте S Pen, щоб ефективніше працювати з нотатками'
+                  value: 'Підсвічування клавіатури'
               - column:
                   name: color
-                  value: 'green'
+                  value: 'grey'

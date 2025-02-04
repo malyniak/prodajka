@@ -12,19 +12,19 @@ databaseChangeLog:
                   value: c7f2e259-ec92-4bce-b2bc-30700cfe105e
               - column :
                   name : display
-                  value : 'Екран 11" IPS (1920x1200)'
+                  value : 'Екран 15.6" IPS (1920x1080) Full HD'
               - column :
                   name : frequencies
-                  value : 'MediaTek Helio G88 (2.0 ГГц + 1.8 ГГц)'
+                  value : 'Intel Core i5-12450H (2.0 - 4.4 ГГц)'
               - column :
                   name : camera
-                  value : 'основна камера 8 Мп + фронтальна - 8 Мп'
+                  value : 'веб-камера'
               - column :
                   name : version_OS
-                  value : 'Android 13'
+                  value : 'без ОС'
               - column :
                   name : memory
-                  value : 'RAM 8 ГБ / 128 ГБ вбудованої памяті + microSD'
+                  value : 'RAM 16 ГБ / SSD 512 ГБ'
               - column :
                   name : product_id
                   value : 06671fb0-7af9-4c21-9843-b8145171a528
@@ -36,19 +36,19 @@ databaseChangeLog:
                   value : e85eff15-ff3a-4bfb-8593-61dc395cb537
               - column :
                   name : display
-                  value : 'Екран 10.9" (2360x1640) MultiTouch'
+                  value : 'Екран 15.6" IPS (1920x1080) Full HD 144 Гц'
               - column :
                   name : frequencies
-                  value : 'понад 1.2 ГГц'
+                  value : ' AMD Ryzen 5 5500H (3.3 - 4.2 ГГц)'
               - column :
                   name : camera
-                  value : 'основна камера 12 Мп, фронтальна 12 Мп'
+                  value : 'веб-камера'
               - column :
                   name : version_OS
-                  value : 'iPadOS 16'
+                  value : 'без ОС'
               - column :
                   name : memory
-                  value : '64 ГБ вбудованої памʼяті'
+                  value : 'RAM 16 ГБ / SSD 512 ГБ'
               - column :
                   name : product_id
                   value : 41242004-4522-40cb-9838-f2106e8ec840
@@ -60,19 +60,19 @@ databaseChangeLog:
                   value : cf7b3107-a9b8-4165-b359-db98e6628b80
               - column :
                   name : display
-                  value : 'Екран 11" TFT (1920x1200) MultiTouch'
+                  value : 'Екран 13.3" Retina (2560x1600) WQXGA'
               - column :
                   name : frequencies
-                  value : 'Qualcomm Snapdragon 695 (2.2 ГГц + 1.7 ГГц)'
+                  value : 'Apple M1'
               - column :
                   name : camera
-                  value : 'основна камера 8 Мп, фронтальна - 5 Мп'
+                  value : 'HD-камера FaceTime 720p'
               - column :
                   name : version_OS
-                  value : 'Android 13'
+                  value : 'macOS Big Sur'
               - column :
                   name : memory
-                  value : 'RAM 8 ГБ / 128 ГБ вбудованої памяті + microSD'
+                  value : 'AM 8 ГБ / SSD 256 ГБ'
               - column :
                   name : product_id
                   value : 6a3a2831-5ce6-42b8-a263-6a23daa8b505
@@ -84,19 +84,19 @@ databaseChangeLog:
                   value : ff37cd39-5b70-4263-9a10-0b3539b7534d
               - column :
                   name : display
-                  value : 'Екран 12.4" (2560 x 1600) MultiTouch'
+                  value : 'Екран 16" IPS (1920x1200) WUXGA'
               - column :
                   name : frequencies
-                  value : 'Samsung Exynos 1380 (2.4 ГГц)'
+                  value : 'Intel Core i5-12450H (2.0 - 4.4 ГГц)'
               - column :
                   name : camera
-                  value : 'подвійна основна камера: 8 Мп + 8 Мп, фронтальна - 12 Мп'
+                  value : 'веб-камера'
               - column :
                   name : version_OS
-                  value : 'Android 13'
+                  value : 'без ОС'
               - column :
                   name : memory
-                  value : 'RAM 8 ГБ / 128 ГБ вбудованої памяті + microSD'
+                  value : 'RAM 16 ГБ / SSD 512 ГБ'
               - column :
                   name : product_id
                   value : 9ccd6041-41c4-4b22-aebe-ba5007468f58

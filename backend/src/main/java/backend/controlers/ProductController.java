@@ -17,6 +17,7 @@ import java.nio.ByteBuffer;
 @RestController
 @RequestMapping(value = "/api/product")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:4200")
 public class ProductController {
     private final ProductService productService;
     private final AwsService awsService;

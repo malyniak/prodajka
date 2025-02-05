@@ -86,7 +86,7 @@ public class AwsService {
     }
 
     public String generateKey(FilePart filePart) {
-        return UUID.randomUUID().toString().substring(10) + " " + filePart.filename();
+        return UUID.randomUUID().toString().substring(10) + filePart.filename();
     }
 
 }

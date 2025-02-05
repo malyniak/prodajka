@@ -1,0 +1,5 @@
+<div *ngIf="laptops$ | async">
+  <div *ngFor="let laptop of (laptops$ | async)">
+    {{laptop.fullName}}
+  </div>
+</div>

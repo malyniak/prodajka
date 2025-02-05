@@ -52,7 +52,7 @@ public class ProductController {
         return productService.updateImageFile(filePart, id);
     }
 
-    @GetMapping(path = "/{filekey}")
+    @GetMapping(path = "/download/{filekey}")
     public Mono<ResponseEntity<Flux<ByteBuffer>>> downloadFile(@PathVariable("filekey") String filekey) {
         return awsService.downloadFile(filekey);
     }

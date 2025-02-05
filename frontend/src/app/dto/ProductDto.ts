@@ -1,3 +1,5 @@
+import {SafeUrl} from "@angular/platform-browser";
+
 export interface ProductDto {
   id: string
   display: string | null;
@@ -22,6 +24,6 @@ export interface ProductDto {
   isAccess: boolean | null
   description: string | null
   color : string | null
-  imageUrl: string | null
+  imageUrl: SafeUrl
   videoUrl: string | null
 }

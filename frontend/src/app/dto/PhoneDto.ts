@@ -1,5 +1,7 @@
+import {SafeUrl} from "@angular/platform-browser";
+
 export interface PhoneDto {
-  id: string
+  id: string;
   display: string | null;
   frequencies: string | null;
   camera: string | null;
@@ -11,17 +13,19 @@ export interface PhoneDto {
   is5g: boolean | null;
   isNanoSim: boolean | null;
   is_2Sim: boolean | null;
-  productId: string | null
-  fullName: string | null
-  price: Number | null
-  brand: string | null
-  model: string | null
-  avgGrade: Number | null
-  saleStatus: string | null
-  productCategory: string
-  isAccess: boolean | null
-  description: string | null
-  color : string | null
-  imageUrl: string | null
-  videoUrl: string | null
+  productId: string | null;
+  fullName: string | null;
+  price: Number | null;
+  brand: string | null;
+  model: string | null;
+  avgGrade: Number | null;
+  saleStatus: string | null;
+  productCategory: string;
+  isAccess: boolean | null;
+  description: string | null;
+  color: string | null;
+  imageUrl: string | null;  // Тут зберігається ключ або шлях до зображення
+  videoUrl: string | null;
+  // Додаткове поле для збереження SafeUrl зображення
+  safeImageUrl?: any; // або SafeUrl, якщо імпортувати тип
 }

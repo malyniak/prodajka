@@ -1,0 +1,10 @@
+<div *ngIf="phones.length > 0; else noPhones">
+  <div *ngFor="let phone of phones">
+    <h3>{{ phone.fullName }}</h3>
+    <img *ngIf="phone.safeImageUrl" [src]="phone.safeImageUrl" alt="{{ phone.fullName }}">
+  </div>
+</div>
+
+<ng-template #noPhones>
+  <p>Немає телефонів для відображення.</p>
+</ng-template>

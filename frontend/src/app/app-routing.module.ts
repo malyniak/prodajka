@@ -4,6 +4,8 @@ import {LaptopComponent} from "./laptop/laptop.component";
 import {CategoryPanelComponent} from "./category-panel/category-panel.component";
 import {PhoneComponent} from "./phone/phone.component";
 import {TvComponent} from "./tv/tv.component";
+import {PhoneDetailsComponent} from "./phone-details/phone-details.component";
+
 
 const routes: Routes = [
   { path: '',
@@ -13,9 +15,15 @@ const routes: Routes = [
     component: LaptopComponent
   },
   {
-    path: 'phones',
-    component: PhoneComponent
+    path: `phone/:id`,
+    component: PhoneDetailsComponent
   },
+
+  {
+    path: 'phones',
+    component: PhoneComponent,
+  },
+
   {
     path: 'tvs',
     component: TvComponent

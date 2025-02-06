@@ -32,4 +32,8 @@ export class PhoneService {
     return this.http.get<PhoneDto[]>(`${this.baseApiUrl}/phone`);
   }
 
+  getPhone (id: string): Observable<PhoneDto> {
+    return this.http.get<PhoneDto>(`${this.baseApiUrl}/phone/${id}`);
+  }
+
 }

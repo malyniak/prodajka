@@ -8,6 +8,8 @@ import { LaptopComponent } from './laptop/laptop.component';
 import { PhoneComponent } from './phone/phone.component';
 import { TvComponent } from './tv/tv.component';
 import {HttpClientModule} from "@angular/common/http";
+import { NavbarComponent } from './sharable/navbar/navbar.component';
+import { PhoneDetailsComponent } from './phone-details/phone-details.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import {HttpClientModule} from "@angular/common/http";
     CategoryPanelComponent,
     LaptopComponent,
     PhoneComponent,
-    TvComponent
+    TvComponent,
+    NavbarComponent,
+    PhoneDetailsComponent
   ],
   imports: [
     BrowserModule,

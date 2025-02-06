@@ -37,6 +37,9 @@ databaseChangeLog:
               - column:
                   name: color
                   value: 'black'
+              - column:
+                  name: image_url
+                  value: 27a-4a5e-a731-a2196cc2f8e0 samsung-s-24.jpg
         - insert :
             tableName : products
             columns :
@@ -64,12 +67,18 @@ databaseChangeLog:
               - column :
                   name : is_access
                   value : 1
+              - column:
+                  name: avg_grade
+                  value: 3.12
               - column :
                   name : description
                   value : 'iPhone 16 Pro доступний у чотирьох приголомшливих кольорах, включаючи новий Desert Titanium.'
               - column :
                   name : color
                   value : 'black'
+              - column:
+                  name: image_url
+                  value: 89f-45d4-ba7f-fef9638bfe6c iphone16pro.jpeg
         - insert :
             tableName : products
             columns :
@@ -103,6 +112,9 @@ databaseChangeLog:
               - column :
                   name : color
                   value : 'red'
+              - column:
+                  name: image_url
+                  value: 970-4f3b-93ed-a5a8dd359e92xiaomi.jpg
         - insert :
             tableName : products
             columns :
@@ -136,6 +148,9 @@ databaseChangeLog:
               - column :
                   name : color
                   value : 'purple'
+              - column:
+                  name: image_url
+                  value: 381-4950-bf1a-518ee3c90ebf iphone_13.jfif
         - insert :
             tableName : products
             columns :

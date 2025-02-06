@@ -1,0 +1,23 @@
+
+.phone-container{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.phone-image {
+  width: 250px;
+  height: 250px;
+}
+
+.phone-title {
+  margin: 10px;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 4px 8px rgb(22, 83, 14);
+  transition: box-shadow 0.3s ease;
+}
+
+.price-element{
+  margin: 10px;
+}

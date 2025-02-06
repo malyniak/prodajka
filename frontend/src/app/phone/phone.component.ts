@@ -13,8 +13,9 @@ import {map, switchMap} from "rxjs/operators";
 export class PhoneComponent implements OnInit {
   phones: PhoneDto[] = [];
 
+
   constructor(
-    private phoneService: PhoneService
+    protected phoneService: PhoneService
   ) {}
 
   ngOnInit(): void {
@@ -23,9 +24,8 @@ export class PhoneComponent implements OnInit {
        const req = phones.map(phone => {
           if(phone.imageUrl) {
            return  this.phoneService.getPhoneImage(phone.imageUrl).pipe(
-              map(safeUrl => ({...phone, safeUrl: safeUrl}))
+              map(safeUrl => ({...phone, safeImageUrl: safeUrl}))
             );
-
           } else {
             return of(phone)
           }

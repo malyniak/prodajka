@@ -1,10 +1,21 @@
-<div *ngIf="phones.length > 0; else noPhones">
-  <div *ngFor="let phone of phones">
-    <h3>{{ phone.fullName }}</h3>
-    <img *ngIf="phone.safeImageUrl" [src]="phone.safeImageUrl" alt="{{ phone.fullName }}">
+<app-navbar></app-navbar>
+<div *ngIf="phones.length > 0; ">
+  <h4 class="d-flex justify-content-center align-items-center">Телефони</h4>
+  <div class="phone-container">
+    <div class="phone-element p-3 mb-2 border hover-shadow" *ngFor="let phone of phones">
+      <img class="phone-image" *ngIf="phone.safeImageUrl" [src]="phone.safeImageUrl" alt="{{ phone.fullName }}">
+
+      <div class="d-flex justify-content-between align-items-center">
+        <span class="price-element fs-5">{{phone.price}} грн</span>
+        <button class="btn btn-outline-primary"><i class="material-icons">shopping_cart</i></button>
+      </div>
+      <button [routerLink]="['/phone', phone.id]" class="btn btn-outline-success border-0 fs-5 border-radius w-100 text-start"
+              type="button" >{{ phone.brand }} {{phone.model}}
+      </button>
+    </div>
   </div>
 </div>
 
-<ng-template #noPhones>
-  <p>Немає телефонів для відображення.</p>
-</ng-template>
+<!--<ng-template #noPhones>-->
+<!--  <p>Немає телефонів для відображення.</p>-->
+<!--</ng-template>-->

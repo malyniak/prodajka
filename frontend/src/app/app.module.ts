@@ -10,6 +10,8 @@ import { TvComponent } from './tv/tv.component';
 import {HttpClientModule} from "@angular/common/http";
 import { NavbarComponent } from './sharable/navbar/navbar.component';
 import { PhoneDetailsComponent } from './phone-details/phone-details.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { PhoneDetailsComponent } from './phone-details/phone-details.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NoopAnimationsModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

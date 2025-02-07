@@ -1,0 +1,71 @@
+<app-navbar></app-navbar>
+
+<div class="d-flex align-items-start text-props" *ngIf="phone | async as p">
+    <div>
+        <img class="image-item p-5" [src]="p.safeImageUrl" alt="{{ p.fullName }}"/>
+    </div>
+    <div class="p-5">
+        <div class="p-2">Телефон {{ p.fullName }}</div>
+        <div class="p-2"  *ngIf="p.avgGrade" >{{ p.avgGrade }}
+            <i *ngFor="let star of stars; let i = index"
+               class="material-icons"
+               [ngClass]="i+1 < p.avgGrade ? 'text-warning' : 'text-secondary'">
+                star
+            </i>
+        </div>
+        <div class="p-2">Екран {{ p.display }}</div>
+        <div class="p-2">Ціна {{ p.price }}
+            <span>
+                <button class="btn btn-outline-primary"><i class="material-icons">shopping_cart</i></button>
+            </span>
+        </div>
+        <button (click)="changeIsDetails()" class="btn btn-outline-success border-0 fs-5 border-radius w-100 text-start">Детальніше</button>
+    </div>
+</div>
+<div class="fst-italic fs-5 fw-semibold p-md-3" *ngIf="isDetails">
+  <ng-container *ngIf="phone | async as p">
+    <mat-list>
+      <mat-list-item>
+        <h3 mat-line>📱 Детальні характеристики</h3>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item *ngIf="p.batteryPower">
+        <span mat-line>🔋 Акумулятор: {{ p.batteryPower }} мАг</span>
+      </mat-list-item>
+      <mat-list-item>
+        <span mat-line>📷 Камера: {{ p.camera }}</span>
+      </mat-list-item>
+      <mat-list-item>
+        <span mat-line>⚡ Процесорні частоти: {{ p.frequencies }}</span>
+      </mat-list-item>
+      <mat-list-item>
+        <span mat-line>🛠 Додаткові функції: {{ p.otherFunctions }}</span>
+      </mat-list-item>
+      <mat-list-item>
+        <span mat-line>📝 Опис: {{ p.description }}</span>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item *ngIf="p.is3g">
+        <span mat-line>📡 3G підтримка</span>
+      </mat-list-item>
+      <mat-list-item *ngIf="p.is5g">
+        <span mat-line>🚀 5G підтримка</span>
+      </mat-list-item>
+      <mat-list-item *ngIf="p.is_2Sim">
+        <span mat-line>📶 Підтримка 2 SIM-карт</span>
+      </mat-list-item>
+      <mat-list-item *ngIf="p.isLTE">
+        <span mat-line>📲 LTE підтримка</span>
+      </mat-list-item>
+      <mat-list-item *ngIf="p.isNanoSim">
+        <span mat-line>🔖 Підтримка NanoSIM</span>
+      </mat-list-item>
+    </mat-list>
+  </ng-container>
+
+
+</div>
+<div>
+
+</div>
+<button class="btn btn-secondary border-0 fs-5 border-radius w-100 text-center">Купити</button>

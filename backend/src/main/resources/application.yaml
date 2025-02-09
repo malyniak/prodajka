@@ -27,6 +27,11 @@ aws :
     secret-key : U5zcUp7HVEudeKwMeEuAmWP0IHKQJlg05jmkCJOj
     region : eu-north-1
     bucket : prodajka.bucket
+jwt:
+  secret: 170dcRxMFSwbO7igJfXuEPhhtvFuFdGoURR0U4pj+E4L28xMbfrukAG+ABwVo2NFIqoR48hyOTEjlOtUMv8XvQ==
+  accessCookieName: jwt_access
+  accessCookieExpiration: 30m
+  refreshCookieName: jwt_refresh
 
 logging :
   level :

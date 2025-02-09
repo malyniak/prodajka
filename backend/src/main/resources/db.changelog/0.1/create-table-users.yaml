@@ -1,0 +1,36 @@
+databaseChangeLog:
+  - logicalFilePath: db/changelog/0.1/create-table-users.yaml
+  - changeSet:
+      id: create-table-users
+      author: malyniak
+      changes :
+        - createTable:
+            tableName: users
+            columns :
+              - column :
+                  name : id
+                  type : CHAR(36)
+                  constraints :
+                    primaryKey : true
+              - column:
+                  name: user_role
+                  type: VARCHAR(128)
+              - column :
+                  name : firstname
+                  type : VARCHAR(128)
+              - column :
+                  name : lastname
+                  type : VARCHAR(128)
+              - column :
+                  name : email
+                  type : VARCHAR(128)
+                  constraints:
+                    unique: true
+              - column :
+                  name : phone_number
+                  type : VARCHAR(128)
+                  constraints:
+                    unique: true
+              - column:
+                  name: password
+                  type: VARCHAR(256)

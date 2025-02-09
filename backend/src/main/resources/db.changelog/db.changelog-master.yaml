@@ -3,6 +3,7 @@ databaseChangeLog :
   - include: { file: 0.1/create-table-phones.yaml, relativeToChangelogFile: true }
   - include: { file: 0.1/create-table-tvs.yaml, relativeToChangelogFile: true }
   - include: { file: 0.1/create-table-laptops.yaml, relativeToChangelogFile: true }
+  - include: { file: 0.1/create-table-users.yaml, relativeToChangelogFile: true }
   - include: { file: 0.2/init-table-products.yaml, relativeToChangelogFile: true }
   - include: { file: 0.2/init-table-phones.yaml, relativeToChangelogFile: true }
   - include: { file: 0.2/init-table-tvs.yaml, relativeToChangelogFile: true }

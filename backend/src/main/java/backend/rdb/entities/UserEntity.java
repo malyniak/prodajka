@@ -24,8 +24,8 @@ public class UserEntity extends BaseEntity {
     String password;
 
     @PersistenceCreator
-    public UserEntity(String id, boolean isNewEntity, UserRole userRole, String firstname, @Nullable String lastname, String email, String phoneNumber, String password) {
-        super(id, isNewEntity);
+    public UserEntity(String id, UserRole userRole, String firstname, @Nullable String lastname, String email, String phoneNumber, String password) {
+        super(id);
         this.userRole = userRole;
         this.firstname = firstname;
         this.lastname = lastname;

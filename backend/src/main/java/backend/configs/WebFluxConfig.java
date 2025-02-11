@@ -5,6 +5,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.r2dbc.connection.R2dbcTransactionManager;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.ReactiveTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.reactive.TransactionalOperator;
@@ -46,6 +48,11 @@ public class WebFluxConfig implements WebFluxConfigurer {
                 .allowedMethods("GET", "POST", "PUT", "DELETE")  // Дозволяє ці HTTP методи
                 .allowedHeaders("*")  // Дозволяє всі заголовки
                 .allowCredentials(true);  // Дозволяє надсилати кукі
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 
 }

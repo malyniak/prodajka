@@ -1,13 +1,13 @@
 package backend.logic;
 
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.JwtParser;
-import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
+import org.springframework.web.server.ResponseStatusException;
 
 import javax.crypto.SecretKey;
 import java.time.Duration;
@@ -19,6 +19,8 @@ public class JwtUtil {
     private String jwtSecret;
     @Value("${jwt.accessCookieExpiration}")
     private Duration accessCookieExpiration;
+    @Value("${jwt.refreshCookieExpiration}")
+    private Duration refreshCookieExpiration;
 
     private JwtParser jwtParser;
     private SecretKey secretKey;
@@ -41,18 +43,37 @@ public class JwtUtil {
                 .compact();
     }
 
-    public String getUsernameFromToken(String token) {
-        Claims payload = jwtParser.parseSignedClaims(token).getPayload();
-        return payload.get("username", String.class);
+    public String generateRefreshToken(String username) {
+        return Jwts.builder()
+                .claim("username", username)
+                .issuedAt(new Date())
+                .expiration(new Date(System.currentTimeMillis() + Duration.ofDays(7).toMillis()))
+                .signWith(secretKey, Jwts.SIG.HS512)
+                .compact();
     }
 
-    public boolean validateToken(String token, String username) {
-        return getUsernameFromToken(token).equals(username) && !isExpired(token);
+    public String getUsernameFromToken(String token) {
+        try {
+            Jws<Claims> claimsJws = jwtParser.parseSignedClaims(token);
+            Claims payload = claimsJws.getPayload();
+            return payload.get("username", String.class);
+        } catch (JwtException e) {
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Invalid or expired JWT token", e);
+        }
+
+    }
+
+    public boolean validateToken(String token) {
+        return !isExpired(token);
     }
 
     public boolean isExpired(String token) {
         return jwtParser.parseSignedClaims(token).getPayload()
                 .getExpiration()
                 .before(new Date());
+    }
+
+    public boolean validateRefreshToken(String refreshToken) {
+        return !isExpired(refreshToken);
     }
 }

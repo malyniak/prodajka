@@ -55,6 +55,7 @@ public class UserService {
         if(userEntity.getLastname() != null) {
             userDto.setLastname(userEntity.getLastname());
         }
+        userDto.setPassword(userEntity.getPassword());
         return userDto;
     }
 }

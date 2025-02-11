@@ -13,4 +13,5 @@ public class JwtProperties {
      String accessCookieName;
      String refreshCookieName;
      String accessCookieExpiration;
+     String refreshCookieExpiration;
 }

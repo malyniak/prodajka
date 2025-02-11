@@ -2,13 +2,15 @@ package backend.logic;
 
 import backend.services.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.ReactiveAuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.web.server.authentication.ServerAuthenticationConverter;
 import org.springframework.stereotype.Component;
+import org.springframework.web.server.ResponseStatusException;
 import reactor.core.publisher.Mono;
+
+import java.util.List;
 
 @Component
 @RequiredArgsConstructor
@@ -19,33 +21,20 @@ public class JwtAuthenticationManager implements ReactiveAuthenticationManager {
 
     @Override
     public Mono<Authentication> authenticate(Authentication authentication) {
-        String token = authentication.getCredentials().toString();
+        String token = authentication.getPrincipal() != null
+                ? authentication.getPrincipal().toString() : null;
         String username = jwtUtil.getUsernameFromToken(token);
+        if (token == null || !jwtUtil.validateToken(token)) {
 
+            return Mono.error(new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Invalid JWT token") {
+                @Override
+                public String getMessage() {
+                    return super.getMessage();
+                }
+            });
+        }
         return userService.findByEmail(username)
-                .<Authentication>handle((userEntity, sink) -> {
-                    if (!jwtUtil.validateToken(token, userEntity.getEmail())) {
-                        sink.next(authentication);
-                    } else {
-                        sink.error(new AuthenticationException("Invalid JWT token") {
-                            @Override
-                            public String getMessage() {
-                                return super.getMessage();
-                            }
-                        });
-
-                    }
-                });
-    }
-
-    public ServerAuthenticationConverter authenticationConverter() {
-        return exchange -> {
-            String token = exchange.getRequest().getHeaders().getFirst("Authorization");
-            if (token != null && token.startsWith("Bearer ")) {
-                token = token.substring(7);
-                return Mono.just(SecurityContextHolder.getContext().getAuthentication());
-            }
-            return Mono.empty();
-        };
+                .switchIfEmpty(Mono.error(new ResponseStatusException(HttpStatus.UNAUTHORIZED)))
+                .map(user -> new UsernamePasswordAuthenticationToken(username, null, List.of()));
     }
 }

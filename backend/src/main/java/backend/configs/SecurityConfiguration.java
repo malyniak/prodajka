@@ -3,7 +3,7 @@ package backend.configs;
 
 import backend.logic.JwtAuthenticationFilter;
 import backend.logic.JwtAuthenticationManager;
-import backend.logic.SecurityContextRepository;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,7 +17,6 @@ import org.springframework.security.web.server.SecurityWebFilterChain;
 @RequiredArgsConstructor
 public class SecurityConfiguration {
     private final JwtAuthenticationManager authenticationManager;
-    private final SecurityContextRepository securityContextRepository;
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
 
     @Bean

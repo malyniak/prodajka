@@ -30,7 +30,7 @@ aws :
 jwt:
   secret: 170dcRxMFSwbO7igJfXuEPhhtvFuFdGoURR0U4pj+E4L28xMbfrukAG+ABwVo2NFIqoR48hyOTEjlOtUMv8XvQ==
   accessCookieName: jwt_access
-  accessCookieExpiration: 10m
+  accessCookieExpiration: 2m
   refreshCookieExpiration: 7d
   refreshCookieName: jwt_refresh
 

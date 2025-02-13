@@ -39,7 +39,7 @@ public class JwtUtil {
                 .claim("username", username)
                 .issuedAt(new Date())
                 .expiration(new Date(System.currentTimeMillis() + accessCookieExpiration.toMillis()))
-                .signWith(secretKey, Jwts.SIG.HS512)
+                .signWith(secretKey, Jwts.SIG.HS256)
                 .compact();
     }
 
@@ -48,7 +48,7 @@ public class JwtUtil {
                 .claim("username", username)
                 .issuedAt(new Date())
                 .expiration(new Date(System.currentTimeMillis() + Duration.ofDays(7).toMillis()))
-                .signWith(secretKey, Jwts.SIG.HS512)
+                .signWith(secretKey, Jwts.SIG.HS256)
                 .compact();
     }
 
@@ -57,21 +57,30 @@ public class JwtUtil {
             Jws<Claims> claimsJws = jwtParser.parseSignedClaims(token);
             Claims payload = claimsJws.getPayload();
             return payload.get("username", String.class);
+        } catch (ExpiredJwtException e) {
+            return null;
         } catch (JwtException e) {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Invalid or expired JWT token", e);
         }
 
     }
 
-    public boolean validateToken(String token) {
+    public boolean validateAccessToken(String token) {
         return !isExpired(token);
     }
 
     public boolean isExpired(String token) {
-        return jwtParser.parseSignedClaims(token).getPayload()
-                .getExpiration()
-                .before(new Date());
+        try {
+            return jwtParser.parseSignedClaims(token).getPayload()
+                    .getExpiration()
+                    .before(new Date());
+        } catch (ExpiredJwtException e) {
+            return true;
+        } catch (JwtException e) {
+            throw new JwtException("Некоректний JWT токен!");
+        }
     }
+
 
     public boolean validateRefreshToken(String refreshToken) {
         return !isExpired(refreshToken);

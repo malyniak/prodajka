@@ -25,22 +25,21 @@ public class JwtAuthenticationManager implements ReactiveAuthenticationManager {
         String refreshToken = authentication instanceof JwtAuthenticationToken
                 ? ((JwtAuthenticationToken) authentication).getRefreshToken()
                 : null;
-
-        if (refreshToken == null || !jwtUtil.validateRefreshToken(refreshToken)) {
-            return Mono.error(new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Invalid JWT token"));
-        }
         String username = jwtUtil.getUsernameFromToken(accessToken);
-        if (username == null || !jwtUtil.validateAccessToken(accessToken)) {
-            String newAccessToken = jwtUtil.generateAccessToken(jwtUtil.getUsernameFromToken(refreshToken));
+        if (username == null || !jwtUtil.validateToken(accessToken)) {
+            username = refreshToken != null ? jwtUtil.getUsernameFromToken(refreshToken) : null;
+            String newAccessToken = jwtUtil.generateAccessToken(username);
             return userService.findByEmail(username)
                     .switchIfEmpty(Mono.error(new ResponseStatusException(HttpStatus.UNAUTHORIZED)))
                     .map(user -> {
                         return new JwtAuthenticationToken(newAccessToken, refreshToken, List.of(UserRole.USER));
                     });
         }
-
+        if (refreshToken == null || !jwtUtil.validateToken(refreshToken)) {
+            return Mono.error(new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Invalid JWT token"));
+        }
         return userService.findByEmail(username)
-                .doOnSuccess(user -> System.out.println("✅ Користувач знайдений: " + user.getEmail()))
+                .doOnSuccess(user -> System.out.println("User found: " + user.getEmail()))
                 .map(user -> {
                     return new JwtAuthenticationToken(accessToken, refreshToken, List.of(UserRole.USER));
                 });

@@ -62,10 +62,9 @@ public class JwtUtil {
         } catch (JwtException e) {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Invalid or expired JWT token", e);
         }
-
     }
 
-    public boolean validateAccessToken(String token) {
+    public boolean validateToken(String token) {
         return !isExpired(token);
     }
 
@@ -81,8 +80,4 @@ public class JwtUtil {
         }
     }
 
-
-    public boolean validateRefreshToken(String refreshToken) {
-        return !isExpired(refreshToken);
-    }
 }

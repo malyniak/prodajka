@@ -29,10 +29,9 @@ aws :
     bucket : prodajka.bucket
 jwt:
   secret: 170dcRxMFSwbO7igJfXuEPhhtvFuFdGoURR0U4pj+E4L28xMbfrukAG+ABwVo2NFIqoR48hyOTEjlOtUMv8XvQ==
-  accessCookieName: jwt_access
-  accessCookieExpiration: 2m
-  refreshCookieExpiration: 7d
-  refreshCookieName: jwt_refresh
+  accessCookieExpiration: 1m
+  refreshCookieExpiration: 1d
+
 
 logging :
   level :

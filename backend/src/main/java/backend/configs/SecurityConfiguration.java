@@ -11,6 +11,11 @@ import org.springframework.security.config.annotation.web.reactive.EnableWebFlux
 import org.springframework.security.config.web.server.SecurityWebFiltersOrder;
 import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.web.server.SecurityWebFilterChain;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.reactive.CorsConfigurationSource;
+import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
+
+import java.util.List;
 
 @Configuration
 @EnableWebFluxSecurity
@@ -23,14 +28,25 @@ public class SecurityConfiguration {
     public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity http) throws Exception {
         return http.authorizeExchange(authorizeExchangeSpec -> {
                     authorizeExchangeSpec
-                            .pathMatchers("login", "signup").permitAll()
+                            .pathMatchers("/login", "/signup", "/refresh").permitAll()
                             .anyExchange().authenticated();
                 })
-                .csrf().disable()
+                .csrf(ServerHttpSecurity.CsrfSpec::disable)
+                .cors(cors -> cors.configurationSource(corsConfiguration()))
                 .authenticationManager(authenticationManager)
                 .addFilterBefore(jwtAuthenticationFilter, SecurityWebFiltersOrder.AUTHENTICATION)
                 .build();
-
     }
 
+    private CorsConfigurationSource corsConfiguration() {
+        CorsConfiguration apiConfiguration = new CorsConfiguration();
+        apiConfiguration.setAllowedOrigins(List.of("http://localhost:4200"));
+        apiConfiguration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        apiConfiguration.setAllowedHeaders(List.of("*"));
+        apiConfiguration.setAllowCredentials(true);
+
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", apiConfiguration);
+        return source;
+    }
 }

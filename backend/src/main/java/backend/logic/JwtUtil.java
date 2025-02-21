@@ -47,7 +47,7 @@ public class JwtUtil {
         return Jwts.builder()
                 .claim("username", username)
                 .issuedAt(new Date())
-                .expiration(new Date(System.currentTimeMillis() + Duration.ofDays(7).toMillis()))
+                .expiration(new Date(System.currentTimeMillis() + refreshCookieExpiration.toMillis()))
                 .signWith(secretKey, Jwts.SIG.HS256)
                 .compact();
     }

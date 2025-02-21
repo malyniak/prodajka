@@ -8,8 +8,13 @@
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" href="#">Головна</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Корзина</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Вхід</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Реєстрація</a></li>
+        <li *ngIf="(isAuthenticated$ | async); else noAuth">
+          <a class="nav-link" href="#" (click)="logout()">Вихід</a>
+        </li>
+        <ng-template #noAuth>
+          <li class="nav-item"><a class="nav-link" href="/login">Вхід</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Реєстрація</a></li>
+        </ng-template>
       </ul>
     </div>
   </div>

@@ -18,6 +18,8 @@ import backend.rdb.entities.converters.SaleStatusToStringConverter;
 import backend.rdb.entities.converters.StringToProductCategoryConverter;
 import backend.rdb.entities.converters.StringToSaleStatusConverter;
 
+import java.util.List;
+
 @Configuration
 @EnableTransactionManagement
 @EnableWebFlux
@@ -41,14 +43,14 @@ public class WebFluxConfig implements WebFluxConfigurer {
         return TransactionalOperator.create(transactionManager);
     }
 
-  @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**")  // Додає CORS для всіх маршрутів
-                .allowedOrigins("http://localhost:4200")  // Дозволяє доступ лише з фронтенду
-                .allowedMethods("GET", "POST", "PUT", "DELETE")  // Дозволяє ці HTTP методи
-                .allowedHeaders("*")  // Дозволяє всі заголовки
-                .allowCredentials(true);  // Дозволяє надсилати кукі
-    }
+//  @Override
+//    public void addCorsMappings(CorsRegistry registry) {
+//        registry.addMapping("/**")  // Додає CORS для всіх маршрутів
+//                .allowedOrigins("http://localhost:4200")  // Дозволяє доступ лише з фронтенду
+//                .allowedMethods("GET", "POST", "PUT", "DELETE")  // Дозволяє ці HTTP методи
+//                .allowedHeaders("Authorization", "Content-Type", "Accept")  // Дозволяє всі заголовки
+//                .allowCredentials(true);  // Дозволяє надсилати кукі
+//    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {

@@ -7,11 +7,14 @@ import { CategoryPanelComponent } from './category-panel/category-panel.componen
 import { LaptopComponent } from './laptop/laptop.component';
 import { PhoneComponent } from './phone/phone.component';
 import { TvComponent } from './tv/tv.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { NavbarComponent } from './sharable/navbar/navbar.component';
 import { PhoneDetailsComponent } from './phone-details/phone-details.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatListModule } from '@angular/material/list';
+import { AuthComponent } from './auth/auth.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {AuthInterceptor} from "./interceptors/auth.interceptor";
 
 @NgModule({
   declarations: [
@@ -21,16 +24,25 @@ import { MatListModule } from '@angular/material/list';
     PhoneComponent,
     TvComponent,
     NavbarComponent,
-    PhoneDetailsComponent
+    PhoneDetailsComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     NoopAnimationsModule,
-    MatListModule
+    MatListModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

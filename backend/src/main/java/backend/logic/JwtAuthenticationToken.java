@@ -9,10 +9,8 @@ import java.util.List;
 
 @Getter
 public class JwtAuthenticationToken extends UsernamePasswordAuthenticationToken {
-    private final String refreshToken;
 
-    public JwtAuthenticationToken(String accessToken, String refreshToken, List<GrantedAuthority> authorities) {
+    public JwtAuthenticationToken(String accessToken, List<GrantedAuthority> authorities) {
         super(accessToken, accessToken, authorities);
-        this.refreshToken = refreshToken;
     }
 }

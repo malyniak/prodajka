@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from "../../services/auth.service";
+import {BehaviorSubject} from "rxjs";
 
 @Component({
   selector: 'app-navbar',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  isAuthenticated$ = this.authService.isAuthenticated$; // Використовуємо глобальний стан
 
-  constructor() { }
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
-  }
+    }
 
+  logout() {
+    this.authService.logout(); // Викликаємо метод із сервісу
+  }
 }

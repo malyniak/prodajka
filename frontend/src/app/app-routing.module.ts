@@ -5,6 +5,7 @@ import {CategoryPanelComponent} from "./category-panel/category-panel.component"
 import {PhoneComponent} from "./phone/phone.component";
 import {TvComponent} from "./tv/tv.component";
 import {PhoneDetailsComponent} from "./phone-details/phone-details.component";
+import {AuthComponent} from "./auth/auth.component";
 
 
 const routes: Routes = [
@@ -27,6 +28,11 @@ const routes: Routes = [
   {
     path: 'tvs',
     component: TvComponent
+  },
+
+  {
+    path: 'login',
+    component: AuthComponent
   }
 ];
 

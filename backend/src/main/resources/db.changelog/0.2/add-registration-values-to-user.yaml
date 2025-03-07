@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-registration-values-to-user
+      author: malyniak
+      changes:
+        - addColumn:
+            tableName: users
+            columns:
+              - column:
+                  name: confirm_token
+                  type: varchar(255)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: enabled
+                  type: TINYINT(1)
+                  defaultValue: false

@@ -1,6 +1,7 @@
 spring:
   application:
     name: backend
+    base-url: http://localhost:8080
 
   r2dbc :
     url : r2dbc:mysql://localhost:3306/prodajka
@@ -20,6 +21,40 @@ spring:
   jackson :
     serialization :
       FAIL_ON_EMPTY_BEANS : false
+  security:
+    oauth2:
+      resource-server:
+        jwt:
+          issuer-uri: https://accounts.google.com
+      client:
+        registration:
+          google:
+            client-id: 568492037150-ss136l24o7c4f4n45qn4usrpndq09179.apps.googleusercontent.com
+            client-secret: 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
+            scope:
+              - openid
+              - profile
+              - email
+            redirect-uri: "http://localhost:8080/login/oauth2/code/google"
+            authorization-grant-type: authorization_code
+            client-name: Google
+        provider:
+          google:
+            authorization-uri: https://accounts.google.com/o/oauth2/v2/auth
+            token-uri: https://oauth2.googleapis.com/token
+            user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
+            user-name-attribute: sub
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: malyniakvolodiaaa@gmail.com
+    password: lhwg xrsi cncz dfpp
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
 
 aws :
   s3 :
@@ -29,9 +64,8 @@ aws :
     bucket : prodajka.bucket
 jwt:
   secret: 170dcRxMFSwbO7igJfXuEPhhtvFuFdGoURR0U4pj+E4L28xMbfrukAG+ABwVo2NFIqoR48hyOTEjlOtUMv8XvQ==
-  accessCookieExpiration: 1m
+  accessCookieExpiration: 100m
   refreshCookieExpiration: 1d
-
 
 logging :
   level :

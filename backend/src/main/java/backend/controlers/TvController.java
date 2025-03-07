@@ -2,9 +2,9 @@ package backend.controlers;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import backend.dto.TvDto;
+import backend.domain.dto.TvDto;
 import backend.rdb.entities.TvEntity;
-import backend.services.TvService;
+import backend.domain.services.TvService;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 

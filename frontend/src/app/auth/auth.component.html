@@ -1,51 +1,54 @@
-<div class="container-fluid vh-100 d-flex" xmlns="http://www.w3.org/1999/html">
-
-  <div class="row  w-100 m-0" >
-    <div class="col-6 d-flex justify-content-center
+<div class="align-self-start py-3 px-3">
+  <a class="fst-normal fs-5 link-color" href="/">На головну</a>
+</div>
+<div class="container-fluid vh-100 d-flex">
+  <div class="row w-100 m-0">
+      <div class="col-6 d-flex justify-content-center
     align-items-center border">
-      <h1 class="fw-semibold fst-italic">PRODAJKA</h1></div>
-    <div class="col-6 d-flex justify-content-center align-items-center border">
-      <div>
-        <div class="align-items-center">
-          <div class="text-center">
-            <h2>Ласкаво просимо</h2>
-           </div>
+        <h1 class="fw-semibold fst-italic">PRODAJKA</h1></div>
 
-          <form [formGroup]="loginForm" (ngSubmit)="login()">
-          <div class="fs-5 py-3">
-            <input formControlName="email" placeholder="Email" type="text">
-          </div>
-          <div class="fs-5">
-            <input formControlName="password" placeholder="Password" type="password">
-          </div>
-            <div class="text-danger py-2">{{errorMessage}}</div>
-          <div class="d-flex justify-content-center">
-            <button class="btn btn-success my-3" type="submit" [disabled]="loginForm.invalid">Підтвердити</button>
-          </div>
+      <div class="col-6 d-flex justify-content-center align-items-center border">
+        <div>
+          <div class="align-items-center">
+            <div class="text-center">
+              <h2>Ласкаво просимо</h2>
+            </div>
 
-          </form>
-          <div class="text-center fs-5">
-            <br>
-            Увійти з допомогою</div>
-          <div class="d-flex justify-content-center py-3">
-            <button class="btn btn-outline-danger">
-              <i class="fa-brands fa-google"></i>
-            </button>
+            <form [formGroup]="loginForm" (ngSubmit)="login()">
+              <div class="fs-5 py-3">
+                <input formControlName="email" placeholder="Email" type="text">
+              </div>
+              <div class="fs-5">
+                <input formControlName="password" placeholder="Password" type="password">
+              </div>
+              <div class="text-danger py-2">{{ errorMessage }}</div>
+              <div class="d-flex justify-content-center">
+                <button class="btn btn-success my-3" type="submit" [disabled]="loginForm.invalid">Підтвердити</button>
+              </div>
 
-            <button class="btn btn-dark">
-              <i class="fa-brands fa-telegram"></i>
-            </button>
+            </form>
+            <div class="text-center fs-5">
+              <br>
+              Увійти з допомогою
+            </div>
+            <div class="d-flex justify-content-center py-3">
+              <button class="fa-brands fa-google btn btn-outline-danger" (click)="loginWithGoogle()">
+              </button>
 
-            <button class="btn btn-primary">
-              <i class="fa-brands fa-facebook"></i>
-            </button>
+              <button class="btn btn-dark">
+                <i class="fa-brands fa-telegram"></i>
+              </button>
 
-          </div>
-          <div class="d-flex justify-content-center" style="height: 5vh;">
-            <button class="fs-5">Реєстрація</button>
+              <button class="btn btn-primary">
+                <i class="fa-brands fa-facebook"></i>
+              </button>
+
+            </div>
+            <div class="d-flex justify-content-center" style="height: 5vh;">
+              <button class="fs-5" routerLink="/registration">Реєстрація</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 </div>

@@ -9,10 +9,10 @@
         <li class="nav-item"><a class="nav-link" href="#">Головна</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Корзина</a></li>
         <li *ngIf="(isAuthenticated$ | async); else noAuth">
-          <a class="nav-link" href="#" (click)="logout()">Вихід</a>
+          <a class="nav-link" href="/signin" (click)="logout()">Вихід</a>
         </li>
         <ng-template #noAuth>
-          <li class="nav-item"><a class="nav-link" href="/login">Вхід</a></li>
+          <li class="nav-item"><a class="nav-link" href="/signin">Вхід</a></li>
           <li class="nav-item"><a class="nav-link" href="#">Реєстрація</a></li>
         </ng-template>
       </ul>

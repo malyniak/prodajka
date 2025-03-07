@@ -6,6 +6,8 @@ import {PhoneComponent} from "./phone/phone.component";
 import {TvComponent} from "./tv/tv.component";
 import {PhoneDetailsComponent} from "./phone-details/phone-details.component";
 import {AuthComponent} from "./auth/auth.component";
+import {LoginCallbackComponent} from "./auth/login-callback/login-callback.component";
+import {RegisterUserComponent} from "./register-user/register-user.component";
 
 
 const routes: Routes = [
@@ -31,9 +33,21 @@ const routes: Routes = [
   },
 
   {
-    path: 'login',
+    path: 'signin',
     component: AuthComponent
-  }
+  },
+
+  {
+    path: 'login-callback',
+    component: LoginCallbackComponent,
+    pathMatch: 'full',
+  },
+
+  {
+    path: 'registration',
+    component: RegisterUserComponent
+  },
+
 ];
 
 @NgModule({

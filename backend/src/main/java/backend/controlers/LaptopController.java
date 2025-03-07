@@ -2,9 +2,9 @@ package backend.controlers;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import backend.dto.LaptopDto;
+import backend.domain.dto.LaptopDto;
 import backend.rdb.entities.LaptopEntity;
-import backend.services.LaptopService;
+import backend.domain.services.LaptopService;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 

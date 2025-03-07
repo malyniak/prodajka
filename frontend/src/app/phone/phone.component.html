@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-<div *ngIf="phones.length > 0; ">
+<div *ngIf="phones.length > 0; else toLogin ">
   <h4 class="d-flex justify-content-center align-items-center">Телефони</h4>
   <div class="phone-container">
     <div class="phone-element p-3 mb-2 border hover-shadow" *ngFor="let phone of phones">
@@ -15,7 +15,6 @@
     </div>
   </div>
 </div>
-
-<!--<ng-template #noPhones>-->
-<!--  <p>Немає телефонів для відображення.</p>-->
-<!--</ng-template>-->
+<ng-template #toLogin >
+  <div routerLink="/login"></div>
+</ng-template>

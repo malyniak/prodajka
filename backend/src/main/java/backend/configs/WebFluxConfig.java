@@ -43,15 +43,6 @@ public class WebFluxConfig implements WebFluxConfigurer {
         return TransactionalOperator.create(transactionManager);
     }
 
-//  @Override
-//    public void addCorsMappings(CorsRegistry registry) {
-//        registry.addMapping("/**")  // Додає CORS для всіх маршрутів
-//                .allowedOrigins("http://localhost:4200")  // Дозволяє доступ лише з фронтенду
-//                .allowedMethods("GET", "POST", "PUT", "DELETE")  // Дозволяє ці HTTP методи
-//                .allowedHeaders("Authorization", "Content-Type", "Accept")  // Дозволяє всі заголовки
-//                .allowCredentials(true);  // Дозволяє надсилати кукі
-//    }
-
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

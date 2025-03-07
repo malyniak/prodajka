@@ -1,8 +1,15 @@
-import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from "@angular/common/http";
+import {
+  HttpErrorResponse,
+  HttpEvent, HttpEventType,
+  HttpHandler,
+  HttpInterceptor,
+  HttpRequest,
+  HttpResponse
+} from "@angular/common/http";
 import {Injectable} from "@angular/core";
 import {BehaviorSubject, Observable, throwError} from "rxjs";
 import {AuthService} from "../services/auth.service";
-import {catchError, filter, switchMap, take} from "rxjs/operators";
+import {catchError, filter, switchMap, take, tap} from "rxjs/operators";
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -30,7 +37,20 @@ export class AuthInterceptor implements HttpInterceptor {
         }
 
         return throwError(() => error);
-      })
+      }),
+      // tap((event) => {
+      //   console.log("tap intercept", event);
+      //   if (event.type === HttpEventType.Response) {
+      //     console.log('Response intercepted:', event);
+      //     const accessToken = event.headers.get('Authorization');
+      //     const refreshToken = event.headers.get('Refresh-Token');
+      //
+      //     if (accessToken && refreshToken) {
+      //       console.log('Tokens received in response headers:', { accessToken, refreshToken });
+      //       this.authService.getTokensFromUrl(); // Зберігаємо токени в localStorage
+      //     }
+      //   }
+      // })
     );
   }
 
@@ -70,6 +90,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
   private addAuthHeader(req: HttpRequest<any>): HttpRequest<any> {
     const accessToken = localStorage.getItem('accessToken');
+    console.log(accessToken)
 
     if (accessToken) {
       return req.clone({

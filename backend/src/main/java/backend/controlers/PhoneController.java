@@ -2,9 +2,9 @@ package backend.controlers;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import backend.dto.PhoneDto;
+import backend.domain.dto.PhoneDto;
 import backend.rdb.entities.PhoneEntity;
-import backend.services.PhoneService;
+import backend.domain.services.PhoneService;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 

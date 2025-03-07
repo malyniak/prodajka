@@ -22,6 +22,9 @@ public class UserEntity extends BaseEntity {
     String email;
     String phoneNumber;
     String password;
+    Boolean enabled;
+    @Nullable
+    String confirmToken;
 
     @PersistenceCreator
     public UserEntity(String id, UserRole userRole, String firstname, @Nullable String lastname, String email, String phoneNumber, String password) {

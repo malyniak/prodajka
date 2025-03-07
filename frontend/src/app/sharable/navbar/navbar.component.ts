@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../../services/auth.service";
-import {BehaviorSubject} from "rxjs";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-navbar',
@@ -8,14 +8,17 @@ import {BehaviorSubject} from "rxjs";
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  isAuthenticated$ = this.authService.isAuthenticated$; // Використовуємо глобальний стан
+  isAuthenticated$!: Observable<boolean>
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) {
+  }
 
   ngOnInit(): void {
-    }
+    this.isAuthenticated$ = this.authService.isAuthenticated$
+  }
 
   logout() {
-    this.authService.logout(); // Викликаємо метод із сервісу
+    console.log('logout');
+    this.authService.logout();
   }
 }

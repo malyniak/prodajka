@@ -5,10 +5,10 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.codec.multipart.FilePart;
 import org.springframework.web.bind.annotation.*;
-import backend.dto.ProductDto;
+import backend.domain.dto.ProductDto;
 import backend.rdb.entities.ProductEntity;
-import backend.services.AwsService;
-import backend.services.ProductService;
+import backend.domain.services.AwsService;
+import backend.domain.services.ProductService;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 

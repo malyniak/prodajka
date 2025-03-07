@@ -4,7 +4,7 @@ plugins {
     id 'io.spring.dependency-management' version '1.1.7'
 }
 
-group = 'com.prodajka'
+group = 'backend'
 version = '0.0.1-SNAPSHOT'
 
 java {
@@ -29,10 +29,14 @@ dependencies {
     implementation 'software.amazon.awssdk:s3:2.30.2'
     implementation 'software.amazon.awssdk:netty-nio-client:2.30.2'
     implementation 'org.springframework.boot:spring-boot-configuration-processor:3.4.1'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.springframework.boot:spring-boot-starter-security:3.4.2'
-
+    implementation 'org.springframework.security:spring-security-oauth2-client:6.4.3'
+    implementation 'org.springframework.security:spring-security-oauth2-jose:6.4.3'
+    implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server:3.4.3'
     implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc:3.4.1'
     implementation 'org.liquibase:liquibase-core:4.30.0'
+    implementation 'org.springframework.boot:spring-boot-starter-mail'
 
     implementation 'io.projectreactor.netty:reactor-netty:1.2.1'
     implementation 'org.apache.tika:tika-core:3.0.0'
@@ -47,6 +51,9 @@ dependencies {
     compileOnly 'org.projectlombok:lombok:1.18.36'
     annotationProcessor 'org.projectlombok:lombok:1.18.36'
 
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'io.projectreactor:reactor-test'
+
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }
@@ -54,3 +61,7 @@ dependencies {
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+//springBoot {
+//    mainClass.set("backend.BackendApplication")
+//}

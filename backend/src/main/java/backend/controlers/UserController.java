@@ -1,15 +1,17 @@
 package backend.controlers;
 
-import backend.dto.RegisterUserDto;
-import backend.logic.AuthRequest;
-import backend.logic.AuthResponse;
-import backend.logic.JwtUtil;
+import backend.domain.dto.RegisterUserDto;
+import backend.domain.logic.AuthRequest;
+import backend.domain.logic.AuthResponse;
+import backend.domain.logic.JwtUtil;
 import backend.rdb.entities.UserEntity;
-import backend.services.UserService;
+import backend.domain.services.UserService;
 import backend.util.PasswordEncoderImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import reactor.core.publisher.Flux;
@@ -22,10 +24,10 @@ public class UserController {
     private final UserService userService;
     private final JwtUtil jwtUtil;
 
-    @PostMapping("/signup")
-    public Mono<UserEntity> registerUser(@RequestBody RegisterUserDto user) {
-        return userService.create(user);
-    }
+//    @PostMapping("/signup")
+//    public Mono<UserEntity> registerUser(@RequestBody RegisterUserDto user) {
+//        return userService.create(user);
+//    }
 
     @GetMapping("/users")
     public Flux<RegisterUserDto> getAllUsers() {
@@ -65,4 +67,17 @@ public class UserController {
                     return ResponseEntity.ok(new AuthResponse(newAccessToken, refresh));
                 });
     }
+
+    @GetMapping("/success")
+    public Mono<ResponseEntity<AuthResponse>> oauth2Success(@AuthenticationPrincipal OAuth2User oauth2User) {
+        if (oauth2User == null) {
+            return Mono.just(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
+        }
+        String username = oauth2User.getAttribute("email");
+        String accessToken = jwtUtil.generateAccessToken(username);
+        String refreshToken = jwtUtil.generateRefreshToken(username);
+
+        return Mono.just(ResponseEntity.ok(new AuthResponse(accessToken, refreshToken)));
+    }
+
 }

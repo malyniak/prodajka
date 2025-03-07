@@ -15,6 +15,8 @@ import { MatListModule } from '@angular/material/list';
 import { AuthComponent } from './auth/auth.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AuthInterceptor} from "./interceptors/auth.interceptor";
+import { LoginCallbackComponent } from './auth/login-callback/login-callback.component';
+import { RegisterUserComponent } from './register-user/register-user.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import {AuthInterceptor} from "./interceptors/auth.interceptor";
     TvComponent,
     NavbarComponent,
     PhoneDetailsComponent,
-    AuthComponent
+    AuthComponent,
+    LoginCallbackComponent,
+    RegisterUserComponent
   ],
   imports: [
     BrowserModule,

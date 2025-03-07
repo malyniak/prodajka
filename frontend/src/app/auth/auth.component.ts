@@ -24,6 +24,11 @@ export class AuthComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  this.authService.changeAuthStatus()
+  }
+
+  loginWithGoogle() {
+    window.location.href = 'http://localhost:8080/oauth2/authorization/google';
   }
 
   login(): void {
@@ -42,6 +47,7 @@ export class AuthComponent implements OnInit {
         next: (response) => {
           console.log("Login successful", response)
           this.router.navigate(['/']);
+
         },
         error: (err) => {
           if (err.status === 400) {

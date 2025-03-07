@@ -8,4 +8,5 @@ databaseChangeLog :
   - include: { file: 0.2/init-table-phones.yaml, relativeToChangelogFile: true }
   - include: { file: 0.2/init-table-tvs.yaml, relativeToChangelogFile: true }
   - include: { file: 0.2/init-table-laptops.yaml, relativeToChangelogFile: true }
+  - include: { file: 0.2/add-registration-values-to-user.yaml, relativeToChangelogFile: true }
 

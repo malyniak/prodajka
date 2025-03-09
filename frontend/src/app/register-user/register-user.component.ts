@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators} from "@angular/forms";
 import {AuthService} from "../services/auth.service";
 import {RegisterRequest} from "../dto/RegisterRequest";
 import {Router} from "@angular/router";
@@ -28,23 +28,41 @@ export class RegisterUserComponent implements OnInit {
       lastname: ['', [Validators.required]],
       phoneNumber: ['', [Validators.required]]
     })
+
+    this.validationErrors = {}; 
   }
 
   register() {
+    const password = this.registerForm.get('password')?.value
+    const confirmPassword = this.registerForm.get('confirmPassword')?.value
+    if( password !== confirmPassword) {
+      this.validationErrors = {passwordMismatch : 'Паролі не співпадають'}
+      console.log(this.validationErrors)
+      return 
+    }
     this.authService.register(this.registerForm.value).subscribe({
       next: () => {
         console.log('Successfully registered');
         this.router.navigate(['/']);
       },
       error: (errors) => {
+        console.log('error method')
+        console.log(this.registerForm.value)
         if (typeof errors === 'object') {
-          this.validationErrors = errors; // Зберігаємо помилки у вигляді об'єкта
+          this.validationErrors = errors;
         } else {
-          this.validationErrors.general = errors; // Якщо помилка загальна (не об'єкт)
+          this.validationErrors.general = errors;
         }
         console.log(this.validationErrors);
       }
     });
   }
+
+  passwordEqualsValidator(group: AbstractControl): ValidationErrors | null {
+    const password = group.get('password')?.value
+    const confirmPassword = group.get('confirmPassword')?.value
+    return password === confirmPassword ? null : {passwordMismatch : true}
+  }
+  
   
 }

@@ -79,5 +79,4 @@ public class UserController {
 
         return Mono.just(ResponseEntity.ok(new AuthResponse(accessToken, refreshToken)));
     }
-
 }

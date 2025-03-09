@@ -41,7 +41,7 @@ public class SecurityConfiguration {
     public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity http) throws Exception {
         return http.authorizeExchange(authorizeExchangeSpec -> {
                     authorizeExchangeSpec
-                            .pathMatchers("/login", "/registration/**", "/refresh", "/oauth2/**").permitAll()
+                            .pathMatchers("/login", "/registration", "/registration/**", "/refresh", "/oauth2/**").permitAll()
                             .anyExchange().authenticated();
                 })
                 .csrf(ServerHttpSecurity.CsrfSpec::disable)

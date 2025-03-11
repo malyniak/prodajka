@@ -1,5 +1,6 @@
 package backend.domain.services;
 
+import backend.domain.model.Product;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.r2dbc.core.R2dbcEntityTemplate;
@@ -113,6 +114,24 @@ public class ProductService {
                     });
 
                 });
+    }
+
+    public Product toProduct(ProductDto productDto) {
+      return Product.builder()
+               .id(productDto.getId())
+               .brand(productDto.getBrand())
+               .color(productDto.getColor())
+               .price(productDto.getPrice())
+               .productCategory(productDto.getProductCategory())
+               .avgGrade(productDto.getAvgGrade())
+               .description(productDto.getDescription())
+               .fullName(productDto.getFullName())
+               .isAccess(productDto.getIsAccess())
+               .imageUrl(productDto.getImageUrl())
+               .saleStatus(productDto.getSaleStatus())
+               .videoUrl(productDto.getVideoUrl())
+               .model(productDto.getModel())
+               .build();
     }
 
 

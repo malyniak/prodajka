@@ -1,0 +1,33 @@
+databaseChangeLog:
+  - logicalFilePath: db/changelog/0.3/create-table-basket_elements.yaml
+  - changeSet:
+      id: create-table-basket_elements
+      author: malyniak
+      changes :
+        - createTable:
+            tableName: basket_elements
+            columns :
+              - column :
+                  name : id
+                  type : CHAR(36)
+                  constraints :
+                    primaryKey : true
+              - column :
+                  name : basket_id
+                  type : CHAR(36)
+                  constraints:
+                    references: baskets(id)
+                    foreignKeyName: fk_baskets-elements_baskets
+                    nullable: false
+              - column:
+                  name: product_id
+                  type: CHAR(36)
+                  constraints:
+                    references: products(id)
+                    foreignKeyName: fk_baskets-elements_products
+                    nullable: false
+              - column:
+                  name: count
+                  type: INT
+                  constraints:
+                    nullable: false

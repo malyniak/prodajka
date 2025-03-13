@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - logicalFilePath: db/changelog/0.3/create-table-baskets.yaml
+  - changeSet:
+      id: create-table-baskets
+      author: malyniak
+      changes :
+        - createTable:
+            tableName: baskets
+            columns :
+              - column :
+                  name : id
+                  type : CHAR(36)
+                  constraints :
+                    primaryKey : true
+              - column :
+                  name : user_id
+                  type : CHAR(36)
+                  constraints:
+                    references: users(id)
+                    foreignKeyName: fk_baskets_users
+                    nullable: false
+
+
+
+
+

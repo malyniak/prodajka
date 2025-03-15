@@ -17,6 +17,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AuthInterceptor} from "./interceptors/auth.interceptor";
 import { LoginCallbackComponent } from './auth/login-callback/login-callback.component';
 import { RegisterUserComponent } from './register-user/register-user.component';
+import { CommonModule } from '@angular/common';
+import { BasketComponent } from './basket/basket.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { RegisterUserComponent } from './register-user/register-user.component';
     PhoneDetailsComponent,
     AuthComponent,
     LoginCallbackComponent,
-    RegisterUserComponent
+    RegisterUserComponent,
+    BasketComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,8 @@ import { RegisterUserComponent } from './register-user/register-user.component';
     NoopAnimationsModule,
     MatListModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule
   ],
   providers: [
     {

@@ -8,6 +8,8 @@ import {PhoneDetailsComponent} from "./phone-details/phone-details.component";
 import {AuthComponent} from "./auth/auth.component";
 import {LoginCallbackComponent} from "./auth/login-callback/login-callback.component";
 import {RegisterUserComponent} from "./register-user/register-user.component";
+import { BasketComponent } from './basket/basket.component';
+
 
 
 const routes: Routes = [
@@ -47,6 +49,11 @@ const routes: Routes = [
     path: 'registration',
     component: RegisterUserComponent
   },
+
+  {
+    path: 'basket',
+    component: BasketComponent
+  }
 
 ];
 

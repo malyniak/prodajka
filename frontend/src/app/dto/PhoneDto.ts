@@ -24,8 +24,7 @@ export interface PhoneDto {
   isAccess: boolean | null;
   description: string | null;
   color: string | null;
-  imageUrl: string | null;  // Тут зберігається ключ або шлях до зображення
+  imageUrl: string | null; 
   videoUrl: string | null;
-  // Додаткове поле для збереження SafeUrl зображення
-  safeImageUrl?: any; // або SafeUrl, якщо імпортувати тип
+  safeImageUrl?: any; 
 }

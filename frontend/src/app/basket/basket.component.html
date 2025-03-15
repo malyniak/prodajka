@@ -1,0 +1,19 @@
+<div>
+<div class="fs-3 py-3 ms-3 container">Корзина
+<div class="py-3" *ngIf="basket$ | async as basket">
+    <div *ngFor="let item of basket.basketItems" class="border py-3">
+        <div class="ms-3">{{item.fullName}}</div>
+        <img *ngIf="productImagesMap$.get(item.id) | async as imageUrl"    [src]="imageUrl"  alt="Product Image">
+        <div class="ms-3">
+            <div class="py-3 d-flex align-items-center">
+                <span class="me-2">Кількість: {{ item.count }}</span>
+                <button class="btn btn-sm btn-dark  ms-2" style="width: 2%;" (click)="increase(item.id)">+</button>
+                <button class="btn btn-sm btn-dark  ms-2" style="width: 2%;">-</button>
+            </div>
+            <div>Загальна ціна: {{item.price}} </div> 
+        </div>
+       
+    </div>
+</div>
+</div>
+</div>

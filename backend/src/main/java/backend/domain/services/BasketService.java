@@ -1,6 +1,6 @@
 package backend.domain.services;
 
-import backend.domain.dto.BasketItemDto;
+import backend.domain.dto.BasketProductDto;
 import backend.domain.dto.UserBasketDto;
 import backend.domain.model.Basket;
 import backend.domain.model.Product;
@@ -62,16 +62,15 @@ public class BasketService {
                     return userBasketRepository.save(userBasketEntity);
                 });
     }
+
     public Mono<Void> clearBasket() {
-        return userService.getCurrentUser()
-                .flatMap(user -> getBasket()
-                        .flatMap(basket -> basketItemRepository.findByBasketId(basket.getId())
-                                .flatMap(basketItemRepository::delete)
-                                .then()
-                        )
+        return getBasket().flatMap(basket -> basketItemRepository.findByBasketId(basket.getId())
+                        .flatMap(basketItemRepository::delete)
+                        .then()
                 );
     }
-    private UserBasketDto toUserBasketDto(UserBasketEntity userBasketEntity, List<BasketItemDto> basketItemDtoList) {
+
+    private UserBasketDto toUserBasketDto(UserBasketEntity userBasketEntity, List<BasketProductDto> basketItemDtoList) {
         UserBasketDto userBasketDto = new UserBasketDto();
         userBasketDto.setId(userBasketEntity.getId());
         userBasketDto.setBasketItems(basketItemDtoList);
@@ -79,7 +78,7 @@ public class BasketService {
         return userBasketDto;
     }
 
-    private Mono<Map<Product, Integer>> toProductsMap(List<BasketItemDto> basketItemDtoList) {
+    private Mono<Map<Product, Integer>> toProductsMap(List<BasketProductDto> basketItemDtoList) {
         return Flux.fromIterable(basketItemDtoList)
                 .flatMap(basketItemDto -> productService.getById(basketItemDto.getProductId())
                         .map(productDto -> Map.entry(productService.toProduct(productDto), basketItemDto.getCount())))

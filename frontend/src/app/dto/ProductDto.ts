@@ -24,6 +24,6 @@ export interface ProductDto {
   isAccess: boolean | null
   description: string | null
   color : string | null
-  imageUrl: SafeUrl
+  imageUrl: string | null | SafeUrl
   videoUrl: string | null
 }

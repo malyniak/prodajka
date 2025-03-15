@@ -1,5 +1,6 @@
 package backend.domain.dto;
 
+import backend.rdb.entities.enums.SaleStatus;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,20 +14,23 @@ import java.util.Objects;
 @Getter
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class BasketItemDto {
+public class BasketProductDto {
     String id;
     String productId;
+    String fullName;
+    Integer price;
+    String imageUrl;
     Integer count;
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        BasketItemDto that = (BasketItemDto) o;
-        return Objects.equals(id, that.id) && Objects.equals(productId, that.productId);
+        BasketProductDto that = (BasketProductDto) o;
+        return Objects.equals(id, that.id) && Objects.equals(fullName, that.fullName) && Objects.equals(price, that.price) && Objects.equals(imageUrl, that.imageUrl) && Objects.equals(count, that.count);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, productId);
+        return Objects.hash(id, fullName, price, imageUrl, count);
     }
 }

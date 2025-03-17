@@ -5,7 +5,8 @@ import { UserBasketDto } from '../dto/UserBasketDto';
 import { CommonModule } from '@angular/common';
 import { ProductService } from '../services/product.service';
 import { SafeUrl } from '@angular/platform-browser';
-import { count } from 'console';
+
+
 
 @Component({
   selector: 'app-basket',
@@ -26,20 +27,53 @@ export class BasketComponent implements OnInit {
       this.basket$.next(data);
 
       data.basketItems.forEach(product => {
-        this.productImagesMap$.set(product.id, this.productService.getImage(product.imageUrl));
+        this.productImagesMap$.set(product.productId, this.productService.getImage(product.imageUrl));
       });
     });
   }
   increase(productId: string) {
     const basket = this.basket$.getValue();
     if (!basket) return; 
+    
+    let newCount: number | null = null;  
+    const updatedBasketItems = basket.basketItems.map(product => {
+      if (product.productId === productId) {
+        newCount = Number(product.count) + 1;
+        console.log(newCount)
+        return { ...product, count: newCount };
+      }
+      return product;
+    });
   
-    const updatedBasketItems = basket.basketItems.map(product => 
-      product.id === productId ? { ...product, count: Number(product.count) + 1 } : product
-    );
-    this.basketService.increaseCount(productId, count)
+    if (newCount !== null) {
+      this.basketService.increaseCount(productId, newCount).subscribe(el => console.log(el))
+    }
+  
     this.basket$.next({ ...basket, basketItems: updatedBasketItems });
-    console.log(basket.id)
+  }
+
+
+    decrease(productId: string) {
+    const basket = this.basket$.getValue();
+    if (!basket) return; 
+    
+    let newCount: number | null = null;
+  
+    const updatedBasketItems = basket.basketItems.map(product => {
+      if (product.productId === productId && product.count > 0) {
+        newCount = Number(product.count) - 1;
+       
+        console.log(newCount)
+        return { ...product, count: newCount };
+      }
+      return product;
+    });
+  
+    if (newCount !== null) {
+      this.basketService.increaseCount(productId, newCount).subscribe(el => console.log(el))
+    }
+  
+    this.basket$.next({ ...basket, basketItems: updatedBasketItems });
   }
 
 }

@@ -20,9 +20,9 @@ export class BasketService {
   }
 
   increaseCount(productId: string, count: number) {
-    const httpParams = new HttpParams()
-    httpParams.set('productId', productId)
-    httpParams.set('count', count)
-    return this.http.patch('http://localhost:8080/api/basket', {httpParams})
+    console.log(count)
+    const httpParams = new HttpParams().set('productId', productId).set('count', count.toString())
+    console.log(httpParams)
+    return this.http.patch('http://localhost:8080/api/basket', {}, {params: httpParams})
   }
 }

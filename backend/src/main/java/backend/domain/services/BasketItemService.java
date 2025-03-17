@@ -35,7 +35,7 @@ public class BasketItemService {
     }
 
     public Mono<Void> increaseProduct(String productId) {
-        basketItemRepository.findByProductId(productId)
+        basketItemRepository.findBy(productId)
                 .map(basketItemEntity -> {
                     basketItemEntity.setCount(basketItemEntity.getCount() + 1);
                     return basketItemRepository.save(basketItemEntity).then();
@@ -52,7 +52,7 @@ public class BasketItemService {
     }
 
     public Mono<Void> changeCount(String productId, Integer newCount) {
-        return basketItemRepository.findByProductId(productId)
+        return basketItemRepository.findBy(productId)
                 .flatMap(basketItemEntity -> {
                     basketItemEntity.setCount(newCount);
                     basketItemEntity.setNewEntity(false);

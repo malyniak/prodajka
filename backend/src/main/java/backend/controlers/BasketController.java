@@ -11,6 +11,7 @@ import reactor.core.publisher.Mono;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/basket")
+@CrossOrigin(origins = "http://localhost:4200")
 public class BasketController {
     private final BasketService basketService;
     private final BasketItemService basketItemService;
@@ -47,7 +48,7 @@ public class BasketController {
     }
 
     @PatchMapping
-    public Mono<Void> changeCount(@RequestParam String productId, Integer count) {
+    public Mono<Void> changeCount(@RequestParam String productId, @RequestParam Integer count) {
         return basketItemService.changeCount(productId, count);
     }
 }
